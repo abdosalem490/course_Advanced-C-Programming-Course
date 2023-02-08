@@ -1,0 +1,1139 @@
+Script started on 2023-02-08 23:14:39+02:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="142" LINES="38"]
+[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[00m$ ulimit -c unlimited 
+[?2004l[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[00m$ vi main.c 
+[?2004l[?1049h[22;0;0t[>4;2m[?1h=[?2004h[?1004h[1;38r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[38;1H"main.c" 8L, 80B[2;1H▽[6n[2;1H  [3;1HPzz\[0%m[6n[3;1H           [1;1H[>c]10;?]11;?[1;1H[35m#include[m[31m<stdio.h>[m[2;1H[K[3;1H[32mint[m main()[3;11H[K[4;1H{[5;9H[32mint[m x;[6;9Hprintf([31m"Hello, World[m[35m\n[m[31m"[m);[7;9H[38;5;130mreturn[m [31m0[m;
+}
+[94m~                                                                                                                                             [10;1H~                                                                                                                                             [11;1H~                                                                                                                                             [12;1H~                                                                                                                                             [13;1H~                                                                                                                                             [14;1H~                                                                                                                                             [15;1H~                                                                                                                                             [16;1H~                                                                                                                                             [17;1H~                                                                                                                                             [18;1H~                                                                                                                                             [19;1H~                                                                                                                                             [20;1H~                                                                                                                                             [21;1H~                                                                                                                                             [22;1H~                                                                                                                                             [23;1H~                                                                                                                                             [24;1H~                                                                                                                                             [25;1H~                                                                                                                                             [26;1H~                                                                                                                                             [27;1H~                                                                                                                                             [28;1H~                                                                                                                                             [29;1H~                                                                                                                                             [30;1H~                                                                                                                                             [31;1H~                                                                                                                                             [32;1H~                                                                                                                                             [33;1H~                                                                                                                                             [34;1H~                                                                                                                                             [35;1H~                                                                                                                                             [36;1H~                                                                                                                                             [37;1H~                                                                                                                                             [m[38;125H1,1[11CAll[1;1H[?25hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\P$q q\[?12$p[?25l[38;115H0[1;1H[38;116H3[1;1H[38;117H0[1;1H[38;118H/[1;1H[38;119H0[1;1H[38;120Ha[1;1H[38;121H0[1;1H[38;122Ha[1;1H[38;123H/[1;1H[38;124H2[1;1H[38;115H          [1;1H[27m[23m[29m[m[H[2J[1;1H[38;5;81m#include[m[95m<stdio.h>[m
+
+[38;5;121mint[m main()
+{[5;9H[38;5;121mint[m x;[6;9Hprintf([95m"Hello, World[m[38;5;224m\n[m[95m"[m);[7;9H[93mreturn[m [95m0[m;
+}
+[94m~                                                                                                                                             [10;1H~                                                                                                                                             [11;1H~                                                                                                                                             [12;1H~                                                                                                                                             [13;1H~                                                                                                                                             [14;1H~                                                                                                                                             [15;1H~                                                                                                                                             [16;1H~                                                                                                                                             [17;1H~                                                                                                                                             [18;1H~                                                                                                                                             [19;1H~                                                                                                                                             [20;1H~                                                                                                                                             [21;1H~                                                                                                                                             [22;1H~                                                                                                                                             [23;1H~                                                                                                                                             [24;1H~                                                                                                                                             [25;1H~                                                                                                                                             [26;1H~                                                                                                                                             [27;1H~                                                                                                                                             [28;1H~                                                                                                                                             [29;1H~                                                                                                                                             [30;1H~                                                                                                                                             [31;1H~                                                                                                                                             [32;1H~                                                                                                                                             [33;1H~                                                                                                                                             [34;1H~                                                                                                                                             [35;1H~                                                                                                                                             [36;1H~                                                                                                                                             [37;1H~                                                                                                                                             [m[38;125H1,1[11CAll"main.c" 8L, 80B[1;1H[?25h[?25l[38;115H~@k[1;1H[38;115H   [2;1H[38;125H2,0-1[2;1H[?25h[?25l[38;115H~@k[2;1H[38;115H   [3;1H[38;125H3,1  [3;1H[?25h[?25l[38;115H~@k[3;1H[38;115H   [4;1H[46m{[8;1H}[m[38;125H4[4;1H[?25h[?25l[38;115H~@k[4;1H[38;115H   [5;8H[4;1H{[8;1H}[38;125H5,1-8[5;8H[?25h[?25l[38;115Hd[5;8H[?25h[?25l[38;116Hd[5;8H[38;115H  [5;9H[5;37r[37;1H
+[1;38r[37;1H[94m~                                                                                                                                             [m[38;1H[K[38;125H5,2-9[9CAll[5;9H[?25h[?25l[38;115Hd[5;9H[?25h[?25l[38;116Hd[5;9H[38;115H  [5;9H[5;37r[37;1H
+[1;38r[37;1H[94m~                                                                                                                                             [m[38;125H[K[38;125H5,2-9[9CAll[5;9H[?25h[?25l[38;115Hi[5;9H[38;115H [5;9H[38;1H[1m-- INSERT --[m[38;125H[K[38;125H5,2-9[9CAll[5;9H[?25h[?25l[4;1H[46m{
+
+}[m[38;125H4,2  [4;2H[?25h[?25l[5;37r[5;1H[L[1;38r[6;1H[46m        [m
+}[38;125H[K[38;125H5,2-9[9CAll[4;1H{
+
+        [5;9H[?25h[?25l[4;1H[46m{
+
+
+}[m[38;125H4,2  [4;2H[?25h[?25l[3;9H[46m()[m
+{
+
+
+}[38;125H3,9[3;9H[?25h[?25l()[38;125H2,1[2;1H[?25h[?25l[3;37r[3;1H[L[1;38r[38;125H[K[38;125H3,1[11CAll[3;1H[?25h[?25l[38;125H2[2;1H[?25h[?25l[3;37r[3;1H[L[1;38r[38;125H[K[38;125H3,1[11CAll[3;1H[?25h[?25l[95m3[m[38;127H2[3;2H[?25h[?25l[3;1H[K[38;127H1[3;1H[?25h[?25l[2;37r[37;1H
+[1;38r[37;1H[94m~                                                                                                                                             [m[38;125H[K[38;125H2,1[11CAll[2;1H[?25h[?25l#[38;127H2[2;2H[?25h[?25li[38;127H3[2;3H[?25h[?25ln[38;127H4[2;4H[?25h[?25lc[38;127H5[2;5H[?25h[?25ll[38;127H6[2;6H[?25h[?25lu[38;127H7[2;7H[?25h[?25ld[38;127H8[2;8H[?25h[?25le[38;127H9[2;9H[?25h[?25l[38;5;81m#include<[m[38;127H10[2;10H[?25h[?25ls[38;128H1[2;11H[?25h[?25lt[38;128H2[2;12H[?25h[?25ld[38;128H3[2;13H[?25h[?25ll[38;128H4[2;14H[?25h[?25li[38;128H5[2;15H[?25h[?25lb[38;128H6[2;16H[?25h[?25l.[38;128H7[2;17H[?25h[?25lh[38;128H8[2;18H[?25h[?25l[2;9H[95m<stdlib.h>[m[38;128H9[2;19H[?25h[?25l[38;125H3,1 [3;1H[?25h[?25l[4;9H[46m()[m[38;125H4,11[4;11H[?25h[?25l()
+[46m{
+
+
+}[m[38;125H5,2 [5;2H[?25h[?25l{
+
+
+}[38;125H6,1[6;1H[?25h[?25l[38;127H2-9[6;9H[?25h[?25lc[38;127H3-10[6;10H[?25h[?25lh[38;127H4-11[6;11H[?25h[?25la[38;127H5-12[6;12H[?25h[?25l[38;5;121mchar[m[38;127H6-13[6;13H[?25h[?25l[38;127H7-14[6;14H[?25h[?25l*[38;127H8-15[6;15H[?25h[?25ls[38;127H9-16[6;16H[?25h[?25lt[38;127H10-17[6;17H[?25h[?25lr[38;128H1-18[6;18H[?25h[?25l[38;128H2-19[6;19H[?25h[?25l=[38;128H3-20[6;20H[?25h[?25l[38;128H4-21[6;21H[?25h[?25lN[38;128H5-22[6;22H[?25h[?25lU[38;128H6-23[6;23H[?25h[?25lL[38;128H7-24[6;24H[?25h[?25l[95mNULL[m[38;128H8-25[6;25H[?25h[?25l;[38;128H9-26[6;26H[?25h[?25l[7;37r[7;1H[L[1;38r[38;125H[K[38;125H7,2-9[9CAll[7;9H[?25h[?25l[8;37r[8;1H[L[1;38r[38;125H[K[38;125H8,2-9[9CAll[8;9H[?25h[?25l[38;125H7,1  [7;1H[?25h[?25l[8;37r[8;1H[L[1;38r[38;125H[K[38;125H8,2-9[9CAll[8;9H[?25h[?25l/[38;127H3-10[8;10H[?25h[?25l[96m/*
+
+        return [1C;
+}[m[38;127H4-11[8;11H[?25h[?25l[96m*[m[38;127H5-12[8;12H[?25h[?25l[38;127H4-11[8;11H[?25h[?25l[38;127H5-12[8;12H[?25h[?25l[96m/[m
+
+        [93mreturn[m [1C;
+}[38;127H6-13[8;13H[?25h[?25l[38;127H5-12[8;12H[?25h[?25l[38;127H4-11[8;11H[?25h[?25l[96ms*/[m[38;127H5-12[8;12H[?25h[?25l[96m*/[m[8;13H[K[38;127H4-11[8;11H[?25h[?25l[96ms*/[m[38;127H5-12[8;12H[?25h[?25l[96m*/[m[8;13H[K[38;127H4-11[8;11H[?25h[?25l[96mS*/[m[38;127H5-12[8;12H[?25h[?25l[96mo*/[m[38;127H6-13[8;13H[?25h[?25l[96mt*/[m[38;127H7-14[8;14H[?25h[?25l[96m*/[m[8;15H[K[38;127H6-13[8;13H[?25h[?25l[96m*/[m[8;14H[K[38;127H5-12[8;12H[?25h[?25l[96mt*/[m[38;127H6-13[8;13H[?25h[?25l[96mo*/[m[38;127H7-14[8;14H[?25h[?25l[96mr*/[m[38;127H8-15[8;15H[?25h[?25l[96me*/[m[38;127H9-16[8;16H[?25h[?25l[96md*/[m[38;127H10-17[8;17H[?25h[?25l[96m */[m[38;128H1-18[8;18H[?25h[?25l[96mi*/[m[38;128H2-19[8;19H[?25h[?25l[96mn*/[m[38;128H3-20[8;20H[?25h[?25l[96m */[m[38;128H4-21[8;21H[?25h[?25l[96mr*/[m[38;128H5-22[8;22H[?25h[?25l[96me*/[m[38;128H6-23[8;23H[?25h[?25l[96ma*/[m[38;128H7-24[8;24H[?25h[?25l[96md*/[m[38;128H8-25[8;25H[?25h[?25l[96m */[m[38;128H9-26[8;26H[?25h[?25l[96mo*/[m[38;127H20-27[8;27H[?25h[?25l[96mn*/[m[38;128H1-28[8;28H[?25h[?25l[96ml*/[m[38;128H2-29[8;29H[?25h[?25l[96my*/[m[38;128H3-30[8;30H[?25h[?25l[96m */[m[38;128H4-31[8;31H[?25h[?25l[96mp*/[m[38;128H5-32[8;32H[?25h[?25l[96ma*/[m[38;128H6-33[8;33H[?25h[?25l[96mr*/[m[38;128H7-34[8;34H[?25h[?25l[96mt*/[m[38;128H8-35[8;35H[?25h[?25l[96m */[m[38;128H9-36[8;36H[?25h[?25l[96mo*/[m[38;127H30-37[8;37H[?25h[?25l[96mf*/[m[38;128H1-38[8;38H[?25h[?25l[96m */[m[38;128H2-39[8;39H[?25h[?25l[96mt*/[m[38;128H3-40[8;40H[?25h[?25l[96m*/[m[8;41H[K[38;128H2-39[8;39H[?25h[?25l[96m*/[m[8;40H[K[38;128H1-38[8;38H[?25h[?25l[96m*/[m[8;39H[K[38;128H0-37[8;37H[?25h[?25l[96md*/[m[38;128H1-38[8;38H[?25h[?25l[96ma*/[m[38;128H2-39[8;39H[?25h[?25l[96m*/[m[8;40H[K[38;128H1-38[8;38H[?25h[?25l[96m*/[m[8;39H[K[38;128H0-37[8;37H[?25h[?25l[96mf*/[m[38;128H1-38[8;38H[?25h[?25l[96m */[m[38;128H2-39[8;39H[?25h[?25l[96md*/[m[38;128H3-40[8;40H[?25h[?25l[96ma*/[m[38;128H4-41[8;41H[?25h[?25l[96mt*/[m[38;128H5-42[8;42H[?25h[?25l[96ma*/[m[38;128H6-43[8;43H[?25h[?25l[96m */[m[38;128H7-44[8;44H[?25h[?25l[96ms*/[m[38;128H8-45[8;45H[?25h[?25l[96me*/[m[38;128H9-46[8;46H[?25h[?25l[96mm*/[m[38;127H40-47[8;47H[?25h[?25l[96mg*/[m[38;128H1-48[8;48H[?25h[?25l[96m*/[m[8;49H[K[38;128H0-47[8;47H[?25h[?25l[96m*/[m[8;48H[K[38;127H39-46[8;46H[?25h[?25l[96mg*/[m[38;127H40-47[8;47H[?25h[?25l[96mm*/[m[38;128H1-48[8;48H[?25h[?25l[96me*/[m[38;128H2-49[8;49H[?25h[?25l[96mn*/[m[38;128H3-50[8;50H[?25h[?25l[96mt*/[m[38;128H4-51[8;51H[?25h[?25l[38;128H5-52[8;52H[?25h[?25l[38;128H6-53[8;53H[?25h[?25l[9;37r[9;1H[L[1;38r[38;125H[K[38;125H9,2-9[9CAll[9;9H[?25h[?25ls[38;127H3-10[9;10H[?25h[?25lt[38;127H4-11[9;11H[?25h[?25lr[38;127H5-12[9;12H[?25h[?25l[38;127H6-13[9;13H[?25h[?25l=[38;127H7-14[9;14H[?25h[?25l[38;127H8-15[9;15H[?25h[?25l[95m"[m[38;127H9-16[9;16H[?25h[?25l[95mG[m[38;127H10-17[9;17H[?25h[?25l[95mF[m[38;128H1-18[9;18H[?25h[?25l[95mG[m[38;128H2-19[9;19H[?25h[?25l[95m"[m[38;128H3-20[9;20H[?25h[?25ll[38;128H4-21[9;21H[?25h[?25l[9;20H[K[38;128H3-20[9;20H[?25h[?25l;[38;128H4-21[9;21H[?25h[?25l[10;37r[10;1H[L[1;38r[38;125H[K[38;125H10,2-9[8CAll[10;9H[?25h[?25l[11;37r[11;1H[L[1;38r[38;125H[K[38;125H11,2-9[8CAll[11;9H[?25h[?25l/[38;128H3-10[11;10H[?25h[?25l[96m/*
+
+        return [1C;
+}[m[38;128H4-11[11;11H[?25h[?25l[96m*[m[38;128H5-12[11;12H[?25h[?25l[96m/[m
+
+        [93mreturn[m [1C;
+}[38;128H6-13[11;13H[?25h[?25l[38;128H5-12[11;12H[?25h[?25l[38;128H4-11[11;11H[?25h[?25l[96mP*/[m[38;128H5-12[11;12H[?25h[?25l[96mr*/[m[38;128H6-13[11;13H[?25h[?25l[96mo*/[m[38;128H7-14[11;14H[?25h[?25l[96mb*/[m[38;128H8-15[11;15H[?25h[?25l[96ml*/[m[38;128H9-16[11;16H[?25h[?25l[96me*/[m[38;128H10-17[11;17H[?25h[?25l[96mm*/[m[38;129H1-18[11;18H[?25h[?25l[96m */[m[38;129H2-19[11;19H[?25h[?25l[96m*/[m[11;20H[K[38;129H1-18[11;18H[?25h[?25l[96m:*/[m[38;129H2-19[11;19H[?25h[?25l[96m */[m[38;129H3-20[11;20H[?25h[?25l[96mT*/[m[38;129H4-21[11;21H[?25h[?25l[96m*/[m[11;22H[K[38;129H3-20[11;20H[?25h[?25l[96mt*/[m[38;129H4-21[11;21H[?25h[?25l[96mr*/[m[38;129H5-22[11;22H[?25h[?25l[96my*/[m[38;129H6-23[11;23H[?25h[?25l[96mi*/[m[38;129H7-24[11;24H[?25h[?25l[96mn*/[m[38;129H8-25[11;25H[?25h[?25l[96mg*/[m[38;129H9-26[11;26H[?25h[?25l[96m */[m[38;128H20-27[11;27H[?25h[?25l[96mt*/[m[38;129H1-28[11;28H[?25h[?25l[96mo*/[m[38;129H2-29[11;29H[?25h[?25l[96m */[m[38;129H3-30[11;30H[?25h[?25l[96mm*/[m[38;129H4-31[11;31H[?25h[?25l[96mo*/[m[38;129H5-32[11;32H[?25h[?25l[96md*/[m[38;129H6-33[11;33H[?25h[?25l[96mi*/[m[38;129H7-34[11;34H[?25h[?25l[96mf*/[m[38;129H8-35[11;35H[?25h[?25l[96my*/[m[38;129H9-36[11;36H[?25h[?25l[96m */[m[38;128H30-37[11;37H[?25h[?25l[96mr*/[m[38;129H1-38[11;38H[?25h[?25l[96me*/[m[38;129H2-39[11;39H[?25h[?25l[96ma*/[m[38;129H3-40[11;40H[?25h[?25l[96md*/[m[38;129H4-41[11;41H[?25h[?25l[96m */[m[38;129H5-42[11;42H[?25h[?25l[96mo*/[m[38;129H6-43[11;43H[?25h[?25l[96mn*/[m[38;129H7-44[11;44H[?25h[?25l[96ml*/[m[38;129H8-45[11;45H[?25h[?25l[96my*/[m[38;129H9-46[11;46H[?25h[?25l[96m */[m[38;128H40-47[11;47H[?25h[?25l[96mm*/[m[38;129H1-48[11;48H[?25h[?25l[96me*/[m[38;129H2-49[11;49H[?25h[?25l[96mm*/[m[38;129H3-50[11;50H[?25h[?25l[96mo*/[m[38;129H4-51[11;51H[?25h[?25l[96mr*/[m[38;129H5-52[11;52H[?25h[?25l[96my*/[m[38;129H6-53[11;53H[?25h[?25l[38;129H7-54[11;54H[?25h[?25l[38;129H8-55[11;55H[?25h[?25l[12;37r[12;1H[L[1;38r[38;125H[K[38;125H12,2-9[8CAll[12;9H[?25h[?25l*[38;128H3-10[12;10H[?25h[?25l([38;128H4-11[12;11H[?25h[?25ls[38;128H5-12[12;12H[?25h[?25lt[38;128H6-13[12;13H[?25h[?25lr[38;128H7-14[12;14H[?25h[?25l_[38;128H8-15[12;15H[?25h[?25l[12;14H[K[38;128H7-14[12;14H[?25h[?25l=[38;128H8-15[12;15H[?25h[?25l[95m1[m[38;128H9-16[12;16H[?25h[?25l[12;15H[K[38;128H8-15[12;15H[?25h[?25l[12;14H[K[38;128H7-14[12;14H[?25h[?25l+[38;128H8-15[12;15H[?25h[?25l[95m1[m[38;128H9-16[12;16H[?25h[?25l)[12;10H[46m([5C)[m[38;128H10-17[12;17H[?25h[?25l[12;10H([5C)[38;129H1-18[12;18H[?25h[?25l=[38;129H2-19[12;19H[?25h[?25l[38;129H3-20[12;20H[?25h[?25l'[38;129H4-21[12;21H[?25h[?25ln[38;129H5-22[12;22H[?25h[?25l[95m'n'[m[38;129H6-23[12;23H[?25h[?25ll[38;129H7-24[12;24H[?25h[?25l[12;23H[K[38;129H6-23[12;23H[?25h[?25l;[38;129H7-24[12;24H[?25h[38;1H[K[12;23H[?25l[38;115H^[[12;23H[38;115H  [12;24H[38;125H12,16-23      All[12;23H[?25h[?25l[38;115HZ[12;23H[?25h[?25l[38;116HZ[12;23H[?2004l[>4;m[38;1H"main.c"[38;115H[K[38;10H15L, 211B written[23;2t[23;1t
+[?1004l[?2004l[?1l>[?25h[>4;m[?1049l[23;0;0t[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[00m$ gvc[K[Kcc -g main.c 
+command.txt  main.c       
+]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[00m$ gcc -g main.c 
+command.txt  main.c       
+]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[00m$ gcc -g main.c 
+[?2004l[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[00m$ ./a.out 
+[?2004lSegmentation fault (core dumped)
+[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[00m$ ls 
+[?2004l[0m[01;32ma.out[0m  command.txt  main.c
+[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[00m$ ls -ltr
+[?2004ltotal 48
+-rw-rw-r-- 1 abdosalm abdosalm   211 Feb  8 23:16 main.c
+-rwxrwxr-x 1 abdosalm abdosalm 17064 Feb  8 23:17 [0m[01;32ma.out[0m
+-rw-rw-r-- 1 abdosalm abdosalm 24576 Feb  8 23:17 command.txt
+[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[00m$ ls -ltr[K[K[Ka
+[?2004l[0m[01;34m.[0m  [01;34m..[0m  [01;32ma.out[0m  command.txt  main.c
+[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[00m$ cat /proc/sys/je[K[Kje[K[Kkernel/core_p
+core_pattern     core_pipe_limit  
+]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[00m$ cat /proc/sys/kernel/core_pattern 
+[?2004l|/usr/share/apport/apport -p%p -s%s -c%c -d%d -P%P -u%u -g%g -- %E
+[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[00m$ cat /proc/sys/kernel/core_pattern [1P[1P[1P[1@v[1@i
+[?2004l[?1049h[22;0;0t[>4;2m[?1h=[?2004h[?1004h[1;38r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[38;1H"/proc/sys/kernel/core_pattern" [readonly] 1L, 67B[2;1H▽[6n[2;1H  [3;1HPzz\[0%m[6n[3;1H           [1;1H[>c]10;?]11;?[1;1H|/usr/share/apport/apport -p%p -s%s -c%c -d%d -P%P -u%u -g%g -- %E
+[94m~                                                                                                                                             [3;1H~                                                                                                                                             [4;1H~                                                                                                                                             [5;1H~                                                                                                                                             [6;1H~                                                                                                                                             [7;1H~                                                                                                                                             [8;1H~                                                                                                                                             [9;1H~                                                                                                                                             [10;1H~                                                                                                                                             [11;1H~                                                                                                                                             [12;1H~                                                                                                                                             [13;1H~                                                                                                                                             [14;1H~                                                                                                                                             [15;1H~                                                                                                                                             [16;1H~                                                                                                                                             [17;1H~                                                                                                                                             [18;1H~                                                                                                                                             [19;1H~                                                                                                                                             [20;1H~                                                                                                                                             [21;1H~                                                                                                                                             [22;1H~                                                                                                                                             [23;1H~                                                                                                                                             [24;1H~                                                                                                                                             [25;1H~                                                                                                                                             [26;1H~                                                                                                                                             [27;1H~                                                                                                                                             [28;1H~                                                                                                                                             [29;1H~                                                                                                                                             [30;1H~                                                                                                                                             [31;1H~                                                                                                                                             [32;1H~                                                                                                                                             [33;1H~                                                                                                                                             [34;1H~                                                                                                                                             [35;1H~                                                                                                                                             [36;1H~                                                                                                                                             [37;1H~                                                                                                                                             [m[38;125H1,1[11CAll[1;1H[?25hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\P$q q\[?12$p[?25l[38;115H:[1;1H[38;116H3[1;1H[38;117H0[1;1H[38;118H3[1;1H[38;119H0[1;1H[38;120H/[1;1H[38;121H0[1;1H[38;122Ha[1;1H[38;123H0[1;1H[38;124Ha[1;1H[38;115H          [1;1H[27m[23m[29m[m[H[2J[1;1H|/usr/share/apport/apport -p%p -s%s -c%c -d%d -P%P -u%u -g%g -- %E
+[94m~                                                                                                                                             [3;1H~                                                                                                                                             [4;1H~                                                                                                                                             [5;1H~                                                                                                                                             [6;1H~                                                                                                                                             [7;1H~                                                                                                                                             [8;1H~                                                                                                                                             [9;1H~                                                                                                                                             [10;1H~                                                                                                                                             [11;1H~                                                                                                                                             [12;1H~                                                                                                                                             [13;1H~                                                                                                                                             [14;1H~                                                                                                                                             [15;1H~                                                                                                                                             [16;1H~                                                                                                                                             [17;1H~                                                                                                                                             [18;1H~                                                                                                                                             [19;1H~                                                                                                                                             [20;1H~                                                                                                                                             [21;1H~                                                                                                                                             [22;1H~                                                                                                                                             [23;1H~                                                                                                                                             [24;1H~                                                                                                                                             [25;1H~                                                                                                                                             [26;1H~                                                                                                                                             [27;1H~                                                                                                                                             [28;1H~                                                                                                                                             [29;1H~                                                                                                                                             [30;1H~                                                                                                                                             [31;1H~                                                                                                                                             [32;1H~                                                                                                                                             [33;1H~                                                                                                                                             [34;1H~                                                                                                                                             [35;1H~                                                                                                                                             [36;1H~                                                                                                                                             [37;1H~                                                                                                                                             [m[38;125H1,1[11CAll"/proc/sys/kernel/core_pattern" [readonly] 1L, 67B[1;1H[?25h[?25l[38;115H^[[1;1H[38;115H  [1;1H[38;115H^[[1;1H[38;115H  [1;1H[?25h[?25l[38;115H:[1;1H[38;1H[K[38;1H:[?25hq[?25l[?2004l[>4;m[23;2t[23;1t[38;1H[K[38;1H[?1004l[?2004l[?1l>[?25h[>4;m[?1049l[23;0;0t[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[00m$ ls /usr/share/apport/apo[Kport
+[?2004l[0m[01;32m/usr/share/apport/apport[0m
+[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[00m$ ls /usr/share/apport/apport/
+[?2004lls: cannot access '/usr/share/apport/apport/': Not a directory
+[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[00m$ ls /usr/share/apport/apport/[K[C[C[1P /usr/share/apport/apport[1P /usr/share/apport/apportc /usr/share/apport/apporta /usr/share/apport/apportt /usr/share/apport/apport
+[?2004l#!/usr/bin/python3
+
+# Collect information about a crash and create a report in the directory
+# specified by apport.fileutils.report_dir.
+# See https://wiki.ubuntu.com/Apport for details.
+#
+# Copyright (c) 2006 - 2016 Canonical Ltd.
+# Author: Martin Pitt <martin.pitt@ubuntu.com>
+#
+# This program is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by the
+# Free Software Foundation; either version 2 of the License, or (at your
+# option) any later version.  See http://www.gnu.org/copyleft/gpl.html for
+# the full text of the license.
+
+import sys, os, os.path, subprocess, time, traceback, pwd, io
+import signal, inspect, grp, fcntl, socket, atexit, array, struct
+import errno, argparse, stat
+
+import apport, apport.fileutils
+
+#################################################################
+#
+# functions
+#
+#################################################################
+
+
+def check_lock():
+    '''Abort if another instance of apport is already running.
+
+    This avoids bringing down the system to its knees if there is a series of
+    crashes.'''
+
+    # create a lock file
+    try:
+        fd = os.open("/var/run/apport.lock",
+                     os.O_WRONLY | os.O_CREAT | os.O_NOFOLLOW, mode=0o600)
+    except OSError as e:
+        error_log('cannot create lock file (uid %i): %s' % (os.getuid(), str(e)))
+        sys.exit(1)
+
+    def error_running(*args):
+        error_log('another apport instance is already running, aborting')
+        sys.exit(1)
+
+    original_handler = signal.signal(signal.SIGALRM, error_running)
+    signal.alarm(30)  # Timeout after that many seconds
+    try:
+        fcntl.lockf(fd, fcntl.LOCK_EX)
+    except IOError:
+        error_running()
+    finally:
+        signal.alarm(0)
+        signal.signal(signal.SIGALRM, original_handler)
+
+
+(pidstat, crash_uid, crash_gid, cwd, proc_pid_fd) = (None, None, None, None, None)
+
+
+def proc_pid_opener(path, flags):
+    return os.open(path, flags, dir_fd=proc_pid_fd)
+
+
+def get_pid_info(pid):
+    '''Read /proc information about pid'''
+
+    global pidstat, crash_uid, crash_gid, cwd, proc_pid_fd
+
+    proc_pid_fd = os.open('/proc/%s' % pid, os.O_RDONLY | os.O_PATH | os.O_DIRECTORY)
+
+    # unhandled exceptions on missing or invalidly formatted files are okay
+    # here -- we want to know in the log file
+    pidstat = os.stat('stat', dir_fd=proc_pid_fd)
+
+    # determine UID and GID of the target process; do *not* use the owner of
+    # /proc/pid/stat, as that will be root for setuid or unreadable programs!
+    # (this matters when suid_dumpable is enabled)
+    with open('status', opener=proc_pid_opener) as status_file:
+        contents = status_file.read()
+    (crash_uid, crash_gid) = apport.fileutils.get_uid_and_gid(contents)
+
+    assert crash_uid is not None, 'failed to parse Uid'
+    assert crash_gid is not None, 'failed to parse Gid'
+
+    cwd = os.open('cwd', os.O_RDONLY | os.O_PATH | os.O_DIRECTORY, dir_fd=proc_pid_fd)
+
+
+def get_process_starttime():
+    '''Get the starttime of the process using proc_pid_fd'''
+
+    with open("stat", opener=proc_pid_opener) as stat_file:
+        contents = stat_file.read()
+    return apport.fileutils.get_starttime(contents)
+
+
+def get_apport_starttime():
+    '''Get the Apport process starttime'''
+
+    with open("/proc/%s/stat" % os.getpid()) as stat_file:
+        contents = stat_file.read()
+    return apport.fileutils.get_starttime(contents)
+
+
+def drop_privileges():
+    '''Change effective user and group to crash_[ug]id
+    '''
+    # Drop any supplemental groups, or we'll still be in the root group
+    if os.getuid() == 0:
+        os.setgroups([])
+        assert os.getgroups() == []
+    os.setregid(-1, crash_gid)
+    os.setreuid(-1, crash_uid)
+    assert os.getegid() == crash_gid
+    assert os.geteuid() == crash_uid
+
+
+def recover_privileges():
+    '''Change effective user and group back to real uid and gid
+    '''
+    os.setregid(-1, os.getgid())
+    os.setreuid(-1, os.getuid())
+    assert os.getegid() == os.getgid()
+    assert os.geteuid() == os.getuid()
+
+
+def init_error_log():
+    '''Open a suitable error log if sys.stderr is not a tty.'''
+
+    if not os.isatty(2):
+        log = os.environ.get('APPORT_LOG_FILE', '/var/log/apport.log')
+        try:
+            f = os.open(log, os.O_WRONLY | os.O_CREAT | os.O_APPEND, 0o600)
+            try:
+                admgid = grp.getgrnam('adm')[2]
+                os.chown(log, -1, admgid)
+                os.chmod(log, 0o640)
+            except KeyError:
+                pass  # if group adm doesn't exist, just leave it as root
+        except OSError:  # on a permission error, don't touch stderr
+            return
+        os.dup2(f, 1)
+        os.dup2(f, 2)
+        sys.stderr = os.fdopen(2, 'wb')
+        if sys.version_info.major >= 3:
+            sys.stderr = io.TextIOWrapper(sys.stderr)
+        sys.stdout = sys.stderr
+
+
+def error_log(msg):
+    '''Output something to the error log.'''
+
+    apport.error('apport (pid %s) %s: %s', os.getpid(), time.asctime(), msg)
+
+
+def _log_signal_handler(sgn, frame):
+    '''Internal apport signal handler. Just log the signal handler and exit.'''
+
+    # reset handler so that we do not get stuck in loops
+    signal.signal(sgn, signal.SIG_IGN)
+    try:
+        error_log('Got signal %i, aborting; frame:' % sgn)
+        for s in inspect.stack():
+            error_log(str(s))
+    except Exception:
+        pass
+    sys.exit(1)
+
+
+def setup_signals():
+    '''Install a signal handler for all crash-like signals, so that apport is
+    not called on itself when apport crashed.'''
+
+    signal.signal(signal.SIGILL, _log_signal_handler)
+    signal.signal(signal.SIGABRT, _log_signal_handler)
+    signal.signal(signal.SIGFPE, _log_signal_handler)
+    signal.signal(signal.SIGSEGV, _log_signal_handler)
+    signal.signal(signal.SIGPIPE, _log_signal_handler)
+    signal.signal(signal.SIGBUS, _log_signal_handler)
+
+
+def write_user_coredump(pid, timestamp, limit, from_report=None):
+    '''Write the core into a directory if ulimit requests it.'''
+
+    # three cases:
+    # limit == 0: do not write anything
+    # limit < 0: unlimited, write out everything
+    # limit nonzero: crashed process' core size ulimit in bytes
+
+    if limit == 0:
+        return
+
+    # don't write a core dump for suid/sgid/unreadable or otherwise
+    # protected executables, in accordance with core(5)
+    # (suid_dumpable==2 and core_pattern restrictions); when this happens,
+    # /proc/pid/stat is owned by root (or the user suid'ed to), but we already
+    # changed to the crashed process' uid
+    assert pidstat, 'pidstat not initialized'
+    if pidstat.st_uid != crash_uid or pidstat.st_gid != crash_gid:
+        error_log('disabling core dump for suid/sgid/unreadable executable')
+        return
+
+    (core_name, core_path) = apport.fileutils.get_core_path(pid,
+                                                            options.executable_path,
+                                                            crash_uid,
+                                                            timestamp,
+                                                            proc_pid_fd)
+
+    try:
+        # Limit number of core files to prevent DoS
+        apport.fileutils.clean_core_directory(crash_uid)
+        core_file = os.open(core_path, os.O_WRONLY | os.O_CREAT | os.O_EXCL, mode=0o400, dir_fd=cwd)
+    except (OSError, IOError):
+        return
+
+    error_log('writing core dump to %s (limit: %s)' % (core_name, str(limit)))
+
+    written = 0
+
+    # Priming read
+    if from_report:
+        r = apport.Report()
+        r.load(from_report)
+        core_size = len(r['CoreDump'])
+        if limit > 0 and core_size > limit:
+            error_log('aborting core dump writing, size %i exceeds current limit' % core_size)
+            os.close(core_file)
+            os.unlink(core_path, dir_fd=cwd)
+            return
+        error_log('writing core dump %s of size %i' % (core_name, core_size))
+        os.write(core_file, r['CoreDump'])
+    else:
+        # read from stdin
+        block = os.read(0, 1048576)
+
+        while True:
+            size = len(block)
+            if size == 0:
+                break
+            written += size
+            if limit > 0 and written > limit:
+                error_log('aborting core dump writing, size exceeds current limit %i' % limit)
+                os.close(core_file)
+                os.unlink(core_path, dir_fd=cwd)
+                return
+            if os.write(core_file, block) != size:
+                error_log('aborting core dump writing, could not write')
+                os.close(core_file)
+                os.unlink(core_path, dir_fd=cwd)
+                return
+            block = os.read(0, 1048576)
+
+    # Make sure the user can read it
+    os.fchown(core_file, crash_uid, -1)
+    os.close(core_file)
+
+
+def usable_ram():
+    '''Return how many bytes of RAM is currently available that can be
+    allocated without causing major thrashing.'''
+
+    # abuse our excellent RFC822 parser to parse /proc/meminfo
+    r = apport.Report()
+    with open('/proc/meminfo', 'rb') as f:
+        r.load(f)
+
+    memfree = int(r['MemFree'].split()[0])
+    cached = int(r['Cached'].split()[0])
+    writeback = int(r['Writeback'].split()[0])
+
+    return (memfree + cached - writeback) * 1024
+
+
+def _run_with_output_limit_and_timeout(args, output_limit, timeout, close_fds=True, env=None):
+    '''Run command like subprocess.run() but with output limit and timeout.
+
+    Return (stdout, stderr).'''
+
+    stdout = b""
+    stderr = b""
+
+    process = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                               close_fds=close_fds, env=env)
+    try:
+        # Don't block so we don't deadlock
+        os.set_blocking(process.stdout.fileno(), False)
+        os.set_blocking(process.stderr.fileno(), False)
+
+        for _ in range(timeout):
+            alive = process.poll() is None
+
+            while len(stdout) < output_limit and len(stderr) < output_limit:
+                tempout = process.stdout.read(100)
+                if tempout:
+                    stdout += tempout
+                temperr = process.stderr.read(100)
+                if temperr:
+                    stderr += temperr
+                if not tempout and not temperr:
+                    break
+
+            if not alive or len(stdout) >= output_limit or len(stderr) >= output_limit:
+                break
+            time.sleep(1)
+    finally:
+        process.kill()
+
+    return stdout, stderr
+
+
+def is_closing_session():
+    '''Check if pid is in a closing user session.
+
+    During that, crashes are common as the session D-BUS and X.org are going
+    away, etc. These crash reports are mostly noise, so should be ignored.
+    '''
+    # Sanity check, don't do anything for root processes
+    if crash_uid == 0 or crash_gid == 0:
+        return False
+
+    with open('environ', 'rb', opener=proc_pid_opener) as e:
+        env = e.read().split(b'\0')
+    for e in env:
+        if e.startswith(b'DBUS_SESSION_BUS_ADDRESS='):
+            dbus_addr = e.split(b'=', 1)[1].decode()
+            break
+    else:
+        error_log('is_closing_session(): no DBUS_SESSION_BUS_ADDRESS in environment')
+        return False
+
+    dbus_socket = apport.fileutils.get_dbus_socket(dbus_addr)
+    if not dbus_socket:
+        error_log('is_closing_session(): Could not determine DBUS socket.')
+        return False
+
+    if not os.path.exists(dbus_socket):
+        error_log("is_closing_session(): DBUS socket doesn't exist.")
+        return False
+
+    # We need to drop both the real and effective uid/gid before calling
+    # gdbus because DBUS_SESSION_BUS_ADDRESS is untrusted and may allow
+    # reading arbitrary files as a noncefile. We can't just drop effective
+    # uid/gid as gdbus has a check to make sure it's not running in a
+    # setuid environment and it does so by comparing the real and effective
+    # ids. We don't need to drop supplemental groups here, as the privilege
+    # dropping code elsewhere has already done so.
+    real_uid = os.getuid()
+    real_gid = os.getgid()
+    try:
+        os.setresgid(crash_gid, crash_gid, real_gid)
+        os.setresuid(crash_uid, crash_uid, real_uid)
+        out, err = _run_with_output_limit_and_timeout(['/usr/bin/gdbus', 'call', '-e', '-d',
+                                                       'org.gnome.SessionManager', '-o', '/org/gnome/SessionManager', '-m',
+                                                       'org.gnome.SessionManager.IsSessionRunning', '-t', '5'],
+                                                      1000, 5, env={'DBUS_SESSION_BUS_ADDRESS': dbus_addr})
+
+        if err:
+            error_log('gdbus call error: ' + err.decode('UTF-8'))
+    except OSError as e:
+        error_log('gdbus call failed, cannot determine running session: ' + str(e))
+        return False
+    finally:
+        os.setresuid(real_uid, real_uid, -1)
+        os.setresgid(real_gid, real_gid, -1)
+
+    error_log('debug: session gdbus call: ' + out.decode('UTF-8'))
+    if out.startswith(b'(false,'):
+        return True
+
+    return False
+
+
+def is_systemd_watchdog_restart(signum):
+    '''Check if this is a restart by systemd's watchdog'''
+
+    if signum != str(signal.SIGABRT) or not os.path.isdir('/run/systemd/system'):
+        return False
+
+    try:
+        with open('cgroup', opener=proc_pid_opener) as f:
+            for line in f:
+                if 'name=systemd:' in line:
+                    unit = line.split('/')[-1].strip()
+                    break
+            else:
+                return False
+
+        journalctl = subprocess.Popen(['/bin/journalctl', '--output=cat', '--since=-5min', '--priority=warning',
+                                       '--unit', unit], stdout=subprocess.PIPE)
+        out = journalctl.communicate()[0]
+        return b'Watchdog timeout' in out
+    except (IOError, OSError) as e:
+        error_log('cannot determine if this crash is from systemd watchdog: %s' % e)
+        return False
+
+
+def is_same_ns(pid, ns):
+    if not os.path.exists('/proc/self/ns/%s' % ns) or \
+            not os.path.exists('/proc/%s/ns/%s' % (pid, ns)):
+        # If the namespace doesn't exist, then it's obviously shared
+        return True
+
+    try:
+        if os.readlink('/proc/%s/ns/%s' % (pid, ns)) == os.readlink('/proc/self/ns/%s' % ns):
+            # Check that the inode for both namespaces is the same
+            return True
+    except OSError as e:
+        if e.errno == errno.ENOENT:
+            return True
+        else:
+            raise
+
+    # check to see if the process is part of the system.slice (LP: #1870060)
+    if os.path.exists('/proc/%s/cgroup' % pid):
+
+        global proc_pid_fd
+        proc_pid_fd = os.open('/proc/%s' % pid, os.O_RDONLY | os.O_PATH | os.O_DIRECTORY)
+
+        with open('cgroup', opener=proc_pid_opener) as cgroup:
+            for line in cgroup:
+                fields = line.split(':')
+                if fields[-1].startswith('/system.slice'):
+                    return True
+
+    return False
+
+
+def parse_arguments():
+    parser = argparse.ArgumentParser(epilog="""
+    Alternatively, the following command line is understood for legacy hosts:
+        <pid> <signal number> <core file ulimit> <dump mode> [global pid] [exe path]
+    """)
+
+    # TODO: Use type=int
+    parser.add_argument("-p", "--pid", help="process id (%%p)")
+    parser.add_argument("-s", "--signal-number", help="signal number (%%s)")
+    parser.add_argument("-c", "--core-ulimit", help="core ulimit (%%c)")
+    parser.add_argument("-d", "--dump-mode", help="dump mode (%%d)")
+    parser.add_argument("-P", "--global-pid", help="pid in root namespace (%%P)")
+    parser.add_argument("-u", "--uid", type=int, help="real UID (%%u)")
+    parser.add_argument("-g", "--gid", type=int, help="real GID (%%g)")
+    parser.add_argument("executable_path", nargs='*', help="path of executable (%%E)")
+
+    options, rest = parser.parse_known_args()
+
+    # Legacy command line needs to remain for the scenario where a more
+    # recent apport is running inside a container with an older apport
+    # running on the host.
+    if options.pid is None and len(sys.argv) == 5:
+        # Translate legacy command line
+        return argparse.Namespace(
+            pid=sys.argv[1],
+            signal_number=sys.argv[2],
+            core_ulimit=sys.argv[3],
+            dump_mode=sys.argv[4],
+            global_pid=None,
+            uid=None,
+            gid=None,
+            executable_path=None,
+        )
+
+    if options.pid is None:
+        parser.print_usage()
+        sys.exit(1)
+
+    for arg in rest:
+        error_log("Unknown argument: %s" % arg)
+
+    # In kernels before 5.3.0, an executable path with spaces may be split
+    # into separate arguments. If options.executable_path is a list, join
+    # it back into a string. Also restore directory separators.
+    if isinstance(options.executable_path, list):
+        options.executable_path = " ".join(options.executable_path)
+    options.executable_path = options.executable_path.replace('!', '/')
+    # Sanity check to prevent trickery later on
+    if '../' in options.executable_path:
+        options.executable_path = None
+
+    return options
+
+
+#################################################################
+#
+# main
+#
+#################################################################
+
+# systemd socket activation
+if 'LISTEN_FDS' in os.environ:
+    try:
+        from systemd.daemon import listen_fds
+    except ImportError:
+        error_log('Received a crash via apport-forward.socket, but systemd python module is not installed')
+        sys.exit(0)
+
+    # Extract and validate the fd
+    fds = listen_fds()
+    if len(fds) < 1:
+        error_log('Invalid socket activation, no fd provided')
+        sys.exit(1)
+
+    # Open the socket
+    sock = socket.fromfd(int(fds[0]), socket.AF_UNIX, socket.SOCK_STREAM)
+    atexit.register(sock.shutdown, socket.SHUT_RDWR)
+
+    # Replace stdin by the socket activation fd
+    sys.stdin.close()
+
+    fds = array.array('i')
+    ucreds = array.array('i')
+    msg, ancdata, flags, addr = sock.recvmsg(4096, 4096)
+    for cmsg_level, cmsg_type, cmsg_data in ancdata:
+        if (cmsg_level == socket.SOL_SOCKET and cmsg_type == socket.SCM_RIGHTS):
+            fds.frombytes(cmsg_data[:len(cmsg_data) - (len(cmsg_data) % fds.itemsize)])
+        elif (cmsg_level == socket.SOL_SOCKET and cmsg_type == socket.SCM_CREDENTIALS):
+            ucreds.frombytes(cmsg_data[:len(cmsg_data) - (len(cmsg_data) % ucreds.itemsize)])
+
+    sys.stdin = os.fdopen(int(fds[0]), 'r')
+
+    # Replace argv by the arguments received over the socket
+    sys.argv = [sys.argv[0]]
+    sys.argv += msg.decode().split()
+    if len(ucreds) >= 3:
+        sys.argv[1] = "%d" % ucreds[0]
+
+    if len(sys.argv) != 5:
+        error_log('Received a bad number of arguments from forwarder, received %d, expected 5, aborting.' % len(sys.argv))
+        sys.exit(1)
+
+
+options = parse_arguments()
+
+init_error_log()
+
+# Check if we received a valid global PID (kernel >= 3.12). If we do,
+# then compare it with the local PID. If they don't match, it's an
+# indication that the crash originated from another PID namespace.
+# Simply log an entry in the host error log and exit 0.
+if options.global_pid is not None:
+    host_pid = int(options.global_pid)
+
+    if not is_same_ns(host_pid, "pid") and not is_same_ns(host_pid, "mnt"):
+        # If the crash came from a container, don't attempt to handle
+        # locally as that would just result in wrong system information.
+
+        # Instead, attempt to find apport inside the container and
+        # forward the process information there.
+
+        proc_host_pid_fd = os.open('/proc/%d' % host_pid, os.O_RDONLY | os.O_PATH | os.O_DIRECTORY)
+
+        def proc_host_pid_opener(path, flags):
+            return os.open(path, flags, dir_fd=proc_host_pid_fd)
+
+        # Validate that the target socket is owned by the user namespace of the process
+        try:
+            sock_fd = os.open("root/run/apport.socket", os.O_RDONLY | os.O_PATH, dir_fd=proc_host_pid_fd)
+            socket_uid = os.fstat(sock_fd).st_uid
+        except FileNotFoundError:
+            error_log('host pid %s crashed in a container without apport support' %
+                      options.global_pid)
+            sys.exit(0)
+
+        try:
+            with open("uid_map", "r", opener=proc_host_pid_opener) as fd:
+                if not apport.fileutils.search_map(fd, socket_uid):
+                    error_log("user is trying to trick apport into accessing a socket that doesn't belong to the container")
+                    sys.exit(0)
+        except FileNotFoundError:
+            pass
+
+        # Validate that the crashed binary is owned by the user namespace of the process
+        task_uid = os.stat("exe", dir_fd=proc_host_pid_fd).st_uid
+        try:
+            with open("uid_map", "r", opener=proc_host_pid_opener) as fd:
+                if not apport.fileutils.search_map(fd, task_uid):
+                    error_log("host pid %s crashed in a container with no access to the binary"
+                              % options.global_pid)
+                    sys.exit(0)
+        except FileNotFoundError:
+            pass
+
+        task_gid = os.stat("exe", dir_fd=proc_host_pid_fd).st_gid
+        try:
+            with open("gid_map", "r", opener=proc_host_pid_opener) as fd:
+                if not apport.fileutils.search_map(fd, task_gid):
+                    error_log("host pid %s crashed in a container with no access to the binary"
+                              % options.global_pid)
+                    sys.exit(0)
+        except FileNotFoundError:
+            pass
+
+        # Now open the socket
+        sock = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+        try:
+            sock.connect('/proc/self/fd/%s' % sock_fd)
+        except Exception:
+            error_log('host pid %s crashed in a container with a broken apport' %
+                      options.global_pid)
+            sys.exit(0)
+
+        # Send main arguments only
+        # Older apport in containers doesn't support positional arguments
+        args = "%s %s %s %s" % (options.pid,
+                                options.signal_number,
+                                options.core_ulimit,
+                                options.dump_mode)
+        try:
+            sock.sendmsg([args.encode()], [
+                # Send a ucred containing the global pid
+                (socket.SOL_SOCKET, socket.SCM_CREDENTIALS, struct.pack("3i", host_pid, 0, 0)),
+
+                # Send fd 0 (the coredump)
+                (socket.SOL_SOCKET, socket.SCM_RIGHTS, array.array('i', [0]))])
+            sock.shutdown(socket.SHUT_RDWR)
+        except Exception:
+            error_log('Container apport failed to process crash within 30s')
+
+        sys.exit(0)
+    elif not is_same_ns(host_pid, "mnt"):
+        error_log('host pid %s crashed in a separate mount namespace, ignoring' % host_pid)
+        sys.exit(0)
+    else:
+        # If it doesn't look like the crash originated from within a
+        # full container or if the is_same_ns() function fails open (returning
+        # True), then take the global pid and replace the local pid with it,
+        # then move on to normal handling.
+
+        # This bit is needed because some software like the chrome
+        # sandbox will use container namespaces as a security measure but are
+        # still otherwise host processes. When that's the case, we need to keep
+        # handling those crashes locally using the global pid.
+        options.pid = str(host_pid)
+
+check_lock()
+
+try:
+    setup_signals()
+
+    pid = options.pid
+    signum = options.signal_number
+    core_ulimit = options.core_ulimit
+    dump_mode = options.dump_mode
+
+    get_pid_info(pid)
+
+    # Sanity check to make sure the process wasn't replaced after the crash
+    # happened. The start time isn't fine-grained enough to be an adequate
+    # security check.
+    apport_start = get_apport_starttime()
+    process_start = get_process_starttime()
+    if process_start > apport_start:
+        error_log('process was replaced after Apport started, ignoring')
+        sys.exit(0)
+
+    # Make sure the process uid/gid match the ones provided by the kernel
+    # if available, if not, it may have been replaced
+    if (options.uid is not None) and (options.gid is not None):
+        if (options.uid != crash_uid) or (options.gid != crash_gid):
+            error_log("process uid/gid doesn't match expected, ignoring")
+            sys.exit(0)
+
+    # check if the executable was modified after the process started (e. g.
+    # package got upgraded in between).
+    exe_mtime = os.stat('exe', dir_fd=proc_pid_fd).st_mtime
+    process_mtime = os.lstat('cmdline', dir_fd=proc_pid_fd).st_mtime
+    if not os.path.exists(os.readlink('exe', dir_fd=proc_pid_fd)) or exe_mtime > process_mtime:
+        error_log('executable was modified after program start, ignoring')
+        sys.exit(0)
+
+    error_log('called for pid %s, signal %s, core limit %s, dump mode %s' % (pid, signum, core_ulimit, dump_mode))
+
+    try:
+        core_ulimit = int(core_ulimit)
+    except ValueError:
+        error_log('core limit is invalid, disabling core files')
+        core_ulimit = 0
+    # clamp core_ulimit to a sensible size, for -1 the kernel reports something
+    # absurdly big
+    if core_ulimit > 9223372036854775807:
+        error_log('ignoring implausibly big core limit, treating as unlimited')
+        core_ulimit = -1
+
+    if dump_mode == '2':
+        error_log('not creating core for pid with dump mode of %s' % (dump_mode))
+        # a report should be created but not a core file
+        core_ulimit = 0
+
+    # ignore SIGQUIT (it's usually deliberately generated by users)
+    if signum == str(int(signal.SIGQUIT)):
+        write_user_coredump(pid, process_start, core_ulimit)
+        sys.exit(0)
+
+    info = apport.Report('Crash')
+    info['Signal'] = signum
+    core_size_limit = usable_ram() * 3 / 4
+    if sys.version_info.major < 3:
+        info['CoreDump'] = (sys.stdin, True, core_size_limit, True)
+    else:
+        # read binary data from stdio
+        info['CoreDump'] = (sys.stdin.detach(), True, core_size_limit, True)
+
+    # We already need this here to figure out the ExecutableName (for scripts,
+    # etc).
+    if options.executable_path is not None and os.path.exists(options.executable_path):
+        info['ExecutablePath'] = options.executable_path
+
+    # Drop privileges temporarily to make sure that we don't
+    # include information in the crash report that the user should
+    # not be allowed to access.
+    drop_privileges()
+
+    info.add_proc_info(proc_pid_fd=proc_pid_fd)
+
+    if 'ExecutablePath' not in info:
+        error_log('could not determine ExecutablePath, aborting')
+        sys.exit(1)
+
+    subject = info['ExecutablePath'].replace('/', '_')
+    base = '%s.%s.%s.hanging' % (subject, str(pidstat.st_uid), pid)
+    hanging = os.path.join(apport.fileutils.report_dir, base)
+
+    if os.path.exists(hanging):
+        if (os.stat('/proc/uptime').st_ctime < os.stat(hanging).st_mtime):
+            info['ProblemType'] = 'Hang'
+        os.unlink(hanging)
+
+    if 'InterpreterPath' in info:
+        error_log('script: %s, interpreted by %s (command line "%s")' %
+                  (info['ExecutablePath'], info['InterpreterPath'],
+                   info['ProcCmdline']))
+    else:
+        error_log('executable: %s (command line "%s")' %
+                  (info['ExecutablePath'], info['ProcCmdline']))
+
+    # ignore non-package binaries (unless configured otherwise)
+    if not apport.fileutils.likely_packaged(info['ExecutablePath']):
+        if not apport.fileutils.get_config('main', 'unpackaged', False, bool=True):
+            error_log('executable does not belong to a package, ignoring')
+            # check if the user wants a core dump
+            recover_privileges()
+            write_user_coredump(pid, process_start, core_ulimit)
+            sys.exit(0)
+
+    # ignore SIGXCPU and SIGXFSZ since this indicates some external
+    # influence changing soft RLIMIT values when running programs.
+    if signum in [str(signal.SIGXCPU), str(signal.SIGXFSZ)]:
+        error_log('Ignoring signal %s (caused by exceeding soft RLIMIT)' % signum)
+        recover_privileges()
+        write_user_coredump(pid, process_start, core_ulimit)
+        sys.exit(0)
+
+    # ignore blacklisted binaries
+    if info.check_ignored():
+        error_log('executable version is blacklisted, ignoring')
+        sys.exit(0)
+
+    # We can now recover privileges to create the crash report file and
+    # write out the user coredumps
+    recover_privileges()
+
+    if is_closing_session():
+        error_log('happens for shutting down session, ignoring')
+        sys.exit(0)
+
+    # ignore systemd watchdog kills; most often they don't tell us the actual
+    # reason (kernel hang, etc.), LP #1433320
+    if is_systemd_watchdog_restart(signum):
+        error_log('Ignoring systemd watchdog restart')
+        sys.exit(0)
+
+    crash_counter = 0
+
+    # Create crash report file descriptor for writing the report into
+    # report_dir
+    try:
+        report = '%s/%s.%i.crash' % (apport.fileutils.report_dir, info['ExecutablePath'].replace('/', '_'), pidstat.st_uid)
+        if os.path.exists(report):
+            if apport.fileutils.seen_report(report):
+                # do not flood the logs and the user with repeated crashes
+                # and make sure the file isn't a FIFO or symlink
+                fd = os.open(report, os.O_NOFOLLOW | os.O_RDONLY | os.O_NONBLOCK)
+                st = os.fstat(fd)
+                if stat.S_ISREG(st.st_mode):
+                    with os.fdopen(fd, 'rb') as f:
+                        crash_counter = apport.fileutils.get_recent_crashes(f)
+                    crash_counter += 1
+                    if crash_counter > 1:
+                        write_user_coredump(pid, process_start, core_ulimit)
+                        error_log('this executable already crashed %i times, ignoring' % crash_counter)
+                        sys.exit(0)
+                # remove the old file, so that we can create the new one with
+                # os.O_CREAT|os.O_EXCL
+                os.unlink(report)
+            else:
+                error_log('apport: report %s already exists and unseen, skipping to avoid disk usage DoS' % report)
+                write_user_coredump(pid, process_start, core_ulimit)
+                sys.exit(0)
+        # we prefer having a file mode of 0 while writing;
+        fd = os.open(report, os.O_RDWR | os.O_CREAT | os.O_EXCL, 0)
+        reportfile = os.fdopen(fd, 'w+b')
+        assert reportfile.fileno() > sys.stderr.fileno()
+
+        # Make sure the crash reporting daemon can read this report
+        try:
+            gid = pwd.getpwnam('whoopsie').pw_gid
+            os.fchown(fd, pidstat.st_uid, gid)
+        except (OSError, KeyError):
+            os.fchown(fd, pidstat.st_uid, pidstat.st_gid)
+    except (OSError, IOError) as e:
+        error_log('Could not create report file: %s' % str(e))
+        sys.exit(1)
+
+    # Drop privileges before writing out the reportfile.
+    drop_privileges()
+
+    info.add_user_info()
+    info.add_os_info()
+
+    if crash_counter > 0:
+        info['CrashCounter'] = '%i' % crash_counter
+
+    try:
+        info.write(reportfile)
+    except IOError:
+        os.unlink(report)
+        raise
+    if 'CoreDump' not in info:
+        error_log('core dump exceeded %i MiB, dropped from %s to avoid memory overflow'
+                  % (core_size_limit / 1048576, report))
+
+    # Get privileges back so the core file can be written to root-owned
+    # corefile directory
+    recover_privileges()
+
+    # make the report writable now, when it's completely written
+    os.fchmod(fd, 0o640)
+    error_log('wrote report %s' % report)
+
+    # Check if the user wants a core file. We need to create that from the
+    # written report, as we can only read stdin once and write_user_coredump()
+    # might abort reading from stdin and remove the written core file when
+    # core_ulimit is > 0 and smaller than the core size.
+    reportfile.seek(0)
+    write_user_coredump(pid, process_start, core_ulimit, from_report=reportfile)
+
+except (SystemExit, KeyboardInterrupt):
+    raise
+except Exception:
+    error_log('Unhandled exception:')
+    traceback.print_exc()
+    error_log('pid: %i, uid: %i, gid: %i, euid: %i, egid: %i' % (
+              os.getpid(), os.getuid(), os.getgid(), os.geteuid(), os.getegid()))
+    error_log('environment: %s' % str(os.environ))
+[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[00m$ clear
+[?2004l[H[2J[3J[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[00m$ ex[K[K[K[A]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced
+ Debugging, Analysis and Compiler Options/my code/06_core_files[00m$ [K[A]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[00m$ ll
+[?2004ltotal 108
+drwxrwxr-x 2 abdosalm abdosalm  4096 Feb  8 23:17 [0m[01;34m.[0m/
+drwxrwxr-x 8 abdosalm abdosalm  4096 Feb  8 23:13 [01;34m..[0m/
+-rwxrwxr-x 1 abdosalm abdosalm 17064 Feb  8 23:17 [01;32ma.out[0m*
+-rw-rw-r-- 1 abdosalm abdosalm 73728 Feb  8 23:20 command.txt
+-rw-rw-r-- 1 abdosalm abdosalm   211 Feb  8 23:16 main.c
+[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/06_core_files[00m$ cd ..
+[?2004l[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code[00m$ gprof 0[K--version
+[?2004lGNU gprof (GNU Binutils for Ubuntu) 2.38
+Based on BSD gprof, copyright 1983 Regents of the University of California.
+This program is free software.  This program has absolutely no warranty.
+[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code[00m$ cp 06_core_files/[K [1@-[1@R[1@ [C[C[C[C[C[C[C[C[C[C[C[C[C[C 0 7 _ p r o f i l i n g 
+[?2004l[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code[00m$ cd 07_profiling/
+[?2004l[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[00m$ ll
+[?2004ltotal 108
+drwxrwxr-x 2 abdosalm abdosalm  4096 Feb  9 00:34 [0m[01;34m.[0m/
+drwxrwxr-x 9 abdosalm abdosalm  4096 Feb  9 00:34 [01;34m..[0m/
+-rwxrwxr-x 1 abdosalm abdosalm 17064 Feb  9 00:34 [01;32ma.out[0m*
+-rw-rw-r-- 1 abdosalm abdosalm 77824 Feb  9 00:34 command.txt
+-rw-rw-r-- 1 abdosalm abdosalm   211 Feb  9 00:34 main.c
+[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[00m$ scrip[K[K[K[K[Kclear
+[?2004l[H[2J[3J[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[00m$ script command.txt 
+[?2004lScript started, output log file is 'command.txt'.
+[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[00m$ vi main.c 
+[?2004l[?1049h[22;0;0t[>4;2m[?1h=[?2004h[?1004h[1;38r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[38;1H"main.c" 15L, 211B[2;1H▽[6n[2;1H  [3;1HPzz\[0%m[6n[3;1H           [1;1H[>c]10;?]11;?[1;1H[35m#include[m[31m<stdio.h>[m
+[35m#include[m[31m<stdlib.h>[m[2;19H[K[3;1H[K[4;1H[32mint[m main()
+{[6;9H[32mchar[m *str = [31mNULL[m;[8;9H[34m/*Stored in read only part of data segment*/[m[9;9Hstr = [31m"GFG"[m;[11;9H[34m/*Problem: trying to modify read only memory*/[m[12;9H*(str+[31m1[m) = [31m'n'[m;[14;9H[38;5;130mreturn[m [31m0[m;
+}
+[94m~                                                                                                                                             [17;1H~                                                                                                                                             [18;1H~                                                                                                                                             [19;1H~                                                                                                                                             [20;1H~                                                                                                                                             [21;1H~                                                                                                                                             [22;1H~                                                                                                                                             [23;1H~                                                                                                                                             [24;1H~                                                                                                                                             [25;1H~                                                                                                                                             [26;1H~                                                                                                                                             [27;1H~                                                                                                                                             [28;1H~                                                                                                                                             [29;1H~                                                                                                                                             [30;1H~                                                                                                                                             [31;1H~                                                                                                                                             [32;1H~                                                                                                                                             [33;1H~                                                                                                                                             [34;1H~                                                                                                                                             [35;1H~                                                                                                                                             [36;1H~                                                                                                                                             [37;1H~                                                                                                                                             [m[38;125H1,1[11CAll[1;1H[?25hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\P$q q\[?12$p[?25l[38;115H0[1;1H[38;116H3[1;1H[38;117H0[1;1H[38;118H/[1;1H[38;119H0[1;1H[38;120Ha[1;1H[38;121H0[1;1H[38;122Ha[1;1H[38;123H/[1;1H[38;124H2[1;1H[38;115H          [1;1H[27m[23m[29m[m[H[2J[1;1H[38;5;81m#include[m[95m<stdio.h>[m
+[38;5;81m#include[m[95m<stdlib.h>[m
+
+[38;5;121mint[m main()
+{[6;9H[38;5;121mchar[m *str = [95mNULL[m;[8;9H[96m/*Stored in read only part of data segment*/[m[9;9Hstr = [95m"GFG"[m;[11;9H[96m/*Problem: trying to modify read only memory*/[m[12;9H*(str+[95m1[m) = [95m'n'[m;[14;9H[93mreturn[m [95m0[m;
+}
+[94m~                                                                                                                                             [17;1H~                                                                                                                                             [18;1H~                                                                                                                                             [19;1H~                                                                                                                                             [20;1H~                                                                                                                                             [21;1H~                                                                                                                                             [22;1H~                                                                                                                                             [23;1H~                                                                                                                                             [24;1H~                                                                                                                                             [25;1H~                                                                                                                                             [26;1H~                                                                                                                                             [27;1H~                                                                                                                                             [28;1H~                                                                                                                                             [29;1H~                                                                                                                                             [30;1H~                                                                                                                                             [31;1H~                                                                                                                                             [32;1H~                                                                                                                                             [33;1H~                                                                                                                                             [34;1H~                                                                                                                                             [35;1H~                                                                                                                                             [36;1H~                                                                                                                                             [37;1H~                                                                                                                                             [m[38;125H1,1[11CAll"main.c" 15L, 211B[1;1H[?25h[?25l[38;115H~@k[1;1H[38;115H   [2;1H[38;125H2[2;1H[?25h[?25l[38;115H~@k[2;1H[38;115H   [3;1H[38;125H3,0-1[3;1H[?25h[?25l[38;115H~@k[3;1H[38;115H   [2;1H[38;125H2,1  [2;1H[?25h[?25l[38;115H~@k[2;1H[38;115H   [1;1H[38;125H1[1;1H[?25h[?25l[38;115H~@k[1;1H[38;115H   [2;1H[38;125H2[2;1H[?25h[?25l[38;115Hd[2;1H[?25h[?25l[38;116Hd[2;1H[38;115H  [2;1H[2;37r[37;1H
+[1;38r[37;1H[94m~                                                                                                                                             [m[38;1H[K[38;125H2,0-1[9CAll[2;1H[?25h[?25l[38;115H~@k[2;1H[38;115H   [3;1H[38;125H3,1  [3;1H[?25h[?25l[38;115H~@k[3;1H[38;115H   [4;1H[46m{[14;1H}[m[38;125H4[4;1H[?25h[?25l[38;115H~@k[4;1H[38;115H   [5;8H[4;1H{[14;1H}[38;125H5,1-8[5;8H[?25h[?25l[38;115H~@k[5;8H[38;115H   [6;1H[38;125H6,0-1[6;1H[?25h[?25l[38;115H~@k[6;1H[38;115H   [5;8H[38;125H5,1-8[5;8H[?25h[?25l[38;115Hi[5;8H[38;115H [5;1H[38;1H[1m-- INSERT --[m[38;125H[K[38;125H5,1[11CAll[5;1H[?25h[38;1H[K[5;1H[?25l[38;115H^[[5;1H[38;115H  [5;1H[38;125H5,1-8[9CAll[5;8H[?25h[?25l[38;115Hd[5;8H[?25h[?25l[38;116Hd[5;8H[38;115H  [5;1H[5;37r[37;1H
+[1;38r[37;1H[94m~                                                                                                                                             [m[38;125H[K[38;125H5,0-1[9CAll[5;1H[?25h[?25l[38;115H~@k[5;1H[38;115H   [4;1H[46m{[13;1H}[m[38;125H4,1  [4;1H[?25h[?25l[38;115H~@k[4;1H[38;115H   [3;1H
+{[13;1H}[38;125H3[3;1H[?25h[?25l[38;115H~@k[3;1H[38;115H   [2;1H[38;125H2,0-1[2;1H[?25h[?25l[38;115H^M[2;1H[38;115H  [3;1H[38;125H3,1  [3;1H[?25h[?25l[38;115H^M[3;1H[38;115H  [4;1H[46m{[13;1H}[m[38;125H4[4;1H[?25h[?25l[38;115H~@k[4;1H[38;115H   [3;1H
+{[13;1H}[38;125H3[3;1H[?25h[?25l[38;115H~@k[3;1H[38;115H   [2;1H[38;125H2,0-1[2;1H[?25h[?25l[38;115Ho[2;1H[38;115H [3;1H[38;1H[1m-- INSERT --[m[38;125H[K[38;125H3,1[11CTop[3;37r[3;1H[L[1;38r[38;125H[K[38;125H3,1[11CAll[3;1H[?25h[?25l[4;37r[4;1H[L[1;38r[38;125H[K[38;125H4,1[11CAll[4;1H[?25h[?25l[38;125H3[3;1H[?25h[?25lv[38;127H2[3;2H[?25h[?25lo[38;127H3[3;3H[?25h[?25li[38;127H4[3;4H[?25h[?25l[38;5;121mvoid[m[38;127H5[3;5H[?25h[?25l[38;127H6[3;6H[?25h[?25ln[38;127H7[3;7H[?25h[?25le[38;127H8[3;8H[?25h[?25lw[38;127H9[3;9H[?25h[?25l[38;127H10[3;10H[?25h[?25l[38;127H9 [3;9H[?25h[?25l[97m[101m)[m[38;127H10[3;10H[?25h[?25lf[38;128H1[3;11H[?25h[?25lu[38;128H2[3;12H[?25h[?25ln[38;128H3[3;13H[?25h[?25lc[38;128H4[3;14H[?25h[?25l1[38;128H5[3;15H[?25h[?25l(
+
+
+[97m[101m{[15;1H}[m[38;128H6[3;16H[?25h[?25l[3;15H[K[6;1H{[15;1H}[38;128H5[3;15H[?25h[?25l[3;14H[K[38;128H4[3;14H[?25h[?25l[3;13H[K[38;128H3[3;13H[?25h[?25l[3;12H[K[38;128H2[3;12H[?25h[?25l[3;11H[K[38;128H1[3;11H[?25h[?25l[3;10H[K[38;128H0[3;10H[?25h[?25l[3;9H[K[38;127H9 [3;9H[?25h[?25l_[38;127H10[3;10H[?25h[?25lc[38;128H1[3;11H[?25h[?25l[3;10H[K[38;128H0[3;10H[?25h[?25lf[38;128H1[3;11H[?25h[?25lu[38;128H2[3;12H[?25h[?25ln[38;128H3[3;13H[?25h[?25lc[38;128H4[3;14H[?25h[?25l1[38;128H5[3;15H[?25h[?25l(
+
+
+[97m[101m{[15;1H}[m[38;128H6[3;16H[?25h[?25lv[38;128H7[3;17H[?25h[?25lo[38;128H8[3;18H[?25h[?25li[38;128H9[3;19H[?25h[?25l[38;5;121mvoid[m[38;127H20[3;20H[?25h[?25l)
+
+
+{[15;1H}[3;15H[46m([4C)[m[38;128H1[3;21H[?25h[?25l;[3;15H([4C)[38;128H2[3;22H[?25h[?25l[4;37r[4;1H[L[1;38r[38;125H[K[38;125H4,1[11CAll[4;1H[?25h[?25l[5;37r[5;1H[L[1;38r[38;125H[K[38;125H5,1[11CAll[5;1H[?25h[?25lv[38;127H2[5;2H[?25h[?25li[38;127H3[5;3H[?25h[?25lu[38;127H4[5;4H[?25h[?25lu[38;127H5[5;5H[?25h[?25ld[38;127H6[5;6H[?25h[?25l[38;127H7[5;7H[?25h[?25l[38;127H6[5;6H[?25h[?25l[5;5H[K[38;127H5[5;5H[?25h[?25l[5;4H[K[38;127H4[5;4H[?25h[?25l[5;3H[K[38;127H3[5;3H[?25h[?25l[5;2H[K[38;127H2[5;2H[?25h[?25lo[38;127H3[5;3H[?25h[?25li[38;127H4[5;4H[?25h[?25l[38;5;121mvoid[m[38;127H5[5;5H[?25h[?25l[38;127H6[5;6H[?25h[?25lf[38;127H7[5;7H[?25h[?25lu[38;127H8[5;8H[?25h[?25ln[38;127H9[5;9H[?25h[?25lc[38;127H10[5;10H[?25h[?25l1[38;128H1[5;11H[?25h[?25l(
+
+
+[97m[101m{[17;1H}[m[38;128H2[5;12H[?25h[?25lv[38;128H3[5;13H[?25h[?25lo[38;128H4[5;14H[?25h[?25li[38;128H5[5;15H[?25h[?25l[38;5;121mvoid[m[38;128H6[5;16H[?25h[?25l)
+
+
+{[17;1H}[5;11H[46m([4C)[m[38;128H7[5;17H[?25h[?25lu[5;11H([4C)[38;128H8[5;18H[?25h[?25lu[38;128H9[5;19H[?25h[?25lu[38;127H20[5;20H[?25h[?25lu[38;128H1[5;21H[?25h[?25lu[38;128H2[5;22H[?25h[?25lu[38;128H3[5;23H[?25h[?25lu[38;128H4[5;24H[?25h[?25lu[38;128H5[5;25H[?25h[?25lu[38;128H6[5;26H[?25h[?25lu[38;128H7[5;27H[?25h[?25lu[38;128H8[5;28H[?25h[?25lu[38;128H9[5;29H[?25h[?25lu[38;127H30[5;30H[?25h[?25lu[38;128H1[5;31H[?25h[?25lu[38;128H2[5;32H[?25h[?25lu[38;128H3[5;33H[?25h[?25lu[38;128H4[5;34H[?25h[?25lu[38;128H5[5;35H[?25h[?25lu[38;128H6[5;36H[?25h[38;1H[K[5;35H[?25l[38;115H^[[5;35H[38;115H  [5;36H[38;125H5,35[10CAll[5;35H[?25h[?25l[38;115Hu[5;35H[38;1H2 fewer lines; before #4  25 seconds ago[38;115H[K[3;1H[3;37r[3;1H[2M[1;38r[3;1H[K[36;1H[94m~                                                                                                                                             [37;1H~                                                                                                                                             [m[38;1H[K[38;125H3,0-1[9CAll2 fewer lines; before #4  25 seconds ago[38;125H[K[38;125H3,0-1[9CAll[3;1H[?25h[?25l[38;115Hu[3;1H[38;24H3  27[38;115H[K[2;1H[3;37r[3;1H[2M[1;38r[36;1H[94m~                                                                                                                                             [37;1H~                                                                                                                                             [m[38;1H[K[38;125H2,0-1[9CAll2 fewer lines; before #3  27 seconds ago[38;125H[K[38;125H2,0-1[9CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;1H1 more line; before #2  32 seconds ago[38;39H[K[5;8H[5;37r[5;1H[L[1;38r[5;9H[38;5;121mchar[m *str = [95mNULL[m;[38;1H[K[38;125H5,1-8[9CAll1 more line; before #2  32 seconds ago[38;125H[K[38;125H5,1-8[9CAll[5;8H[?25h[?25l[38;115Hu[5;8H[38;22H1  36[38;115H[K[2;1H[2;37r[2;1H[L[1;38r[2;1H[38;5;81m#include[m[95m<stdlib.h>[m[38;1H[K[38;125H2,1[11CAll1 more line; before #1  36 seconds ago[38;125H[K[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;1HAlready at oldest change[38;25H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115Hu[2;1H[38;115H[K[2;1H[38;125H2,1[11CAll[2;1H[?25h[?25l[38;115H^[[2;1H[38;115H  [2;1H[38;115H^[[2;1H[38;115H  [2;1H[?25h[?25l[38;115H:[2;1H[38;1H[K[38;1H:[?25hq[?25l[?2004l[>4;m[23;2t[23;1t[38;1H[K[38;1H[?1004l[?2004l[?1l>[?25h[>4;m[?1049l[23;0;0t[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[00m$ gv[Kcc -b[Kpg test.c -m[Ko main
+[?2004l[01m[Kcc1:[m[K [01;31m[Kfatal error: [m[Ktest.c: No such file or directory
+compilation terminated.
+[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[00m$ gcc -pg test.c -o main[1P[1P[1P[1P[1P[1@m[5@ain.c
+main.c
+]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[00m$ gcc -pg main.cc -o main[1@a[1P[1P
+[?2004l[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[00m$ ./[K[K./main 
+[?2004lSegmentation fault (core dumped)
+[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[00m$ ll
+[?2004ltotal 72
+drwxrwxr-x 2 abdosalm abdosalm  4096 Feb  9 00:36 [0m[01;34m.[0m/
+drwxrwxr-x 9 abdosalm abdosalm  4096 Feb  9 00:34 [01;34m..[0m/
+-rwxrwxr-x 1 abdosalm abdosalm 17064 Feb  9 00:34 [01;32ma.out[0m*
+-rw-rw-r-- 1 abdosalm abdosalm 20480 Feb  9 00:36 command.txt
+-rwxrwxr-x 1 abdosalm abdosalm 16392 Feb  9 00:36 [01;32mmain[0m*
+-rw-rw-r-- 1 abdosalm abdosalm   211 Feb  9 00:34 main.c
+[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[00m$ gprof[K[K[K[K[Kc[Krm main.c
+[?2004l[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[00m$ cp[K[Kcat ../02_GCC_Compiler_option_p2/main.c
+[?2004l#include<stdio.h>
+
+int main()
+{
+#ifdef MY_MACRO
+	printf("\n Macro defined \n");
+#endif
+	char c = -10;
+//	printf("c is %d\n", c);
+	printf("Hello, World\n");
+	return 0;
+}
+[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[00m$ cat ../02_GCC_Compiler_option_p2/main.c[C[C[C[1P ../02_GCC_Compiler_option_p2/main.c[1P ../02_GCC_Compiler_option_p2/main.c[1P ../02_GCC_Compiler_option_p2/main.cc ../02_GCC_Compiler_option_p2/main.cp ../02_GCC_Compiler_option_p2/main.c[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C .
+[?2004l[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[00m$ lll[K[Ks
+[?2004l[0m[01;32ma.out[0m  command.txt  [01;32mmain[0m  main.c
+[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[00m$ lscp ../02_GCC_Compiler_option_p2/main.c .[1Pat ../02_GCC_Compiler_option_p2/main.crm main.c[Kll[K./main gcc -pg main.c -o maintest[C[C[C[C[C[C[C[C[C[Cmain[C[C[C[C[C[C[C[C[C[Ctest[C[C[C[C[C[C[C[C[C[C[12Pvi main.c gcc -pg test.c -o mainmain[C[C[C[C[C[C[C[C[C[C
+[?2004l[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[00m$ ./main 
+[?2004lHello, World
+[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[00m$ ll
+[?2004ltotal 84
+drwxrwxr-x 2 abdosalm abdosalm  4096 Feb  9 00:37 [0m[01;34m.[0m/
+drwxrwxr-x 9 abdosalm abdosalm  4096 Feb  9 00:34 [01;34m..[0m/
+-rwxrwxr-x 1 abdosalm abdosalm 17064 Feb  9 00:34 [01;32ma.out[0m*
+-rw-rw-r-- 1 abdosalm abdosalm 24576 Feb  9 00:37 command.txt
+-rw-rw-r-- 1 abdosalm abdosalm  2429 Feb  9 00:37 gmon.out
+-rwxrwxr-x 1 abdosalm abdosalm 16432 Feb  9 00:37 [01;32mmain[0m*
+-rw-rw-r-- 1 abdosalm abdosalm   169 Feb  9 00:37 main.c
+[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[00m$ c[Kgr[Kprof main main[K[K[K[Kgmon.out > aa[Knalysis.txt
+[?2004l[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[00m$ b[Kv [Ki analysis.txt 
+[?2004l[?1049h[22;0;0t[>4;2m[?1h=[?2004h[?1004h[1;38r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[38;1H"analysis.txt" 40L, 1474B[2;1H▽[6n[2;1H  [3;1HPzz\[0%m[6n[3;1H           [1;1H[>c]10;?]11;?[1;1H[35mFlat profile:[m[2;1H[K[3;1H[34mEach sample counts as 0.01 seconds.[m[3;36H[K[4;1H[34m no time accumulated
+
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  Ts/call  Ts/call  name    [m
+
+[31m [m%[9Cthe percentage of the total running time of the
+time[7Cprogram used by this function.
+
+cumulative a running sum of the number of seconds accounted
+[31m [mseconds   for by this function and those listed above it.
+
+[31m [mself      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+[31m           [mlisting.
+
+calls      the number of times this function was invoked, if
+[31m           [mthis function is profiled, else blank.
+
+[31m [mself      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+[31m           [melse blank.
+
+[31m [mtotal     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+[31m           [mfunction is profiled, else blank.
+
+name[7Cthe name of the function.  This is the minor sort
+[31m           [mfor this listing. The index shows the location of
+[31m           [mthe function in the gprof listing. If the index is
+[31m           [min parenthesis it shows where it would appear in
+[31m           [mthe gprof listing if it were to be printed.
+[34m^L[m
+Copyright (C) 2012-2022 Free Software Foundation, Inc.[38;125H1,1[11CTop[1;1H[?25hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\P$q q\[?12$p[?25l[38;115H0[1;1H[38;116H3[1;1H[38;117H0[1;1H[38;118H/[1;1H[38;119H0[1;1H[38;120Ha[1;1H[38;121H0[1;1H[38;122Ha[1;1H[38;123H/[1;1H[38;124H2[1;1H[38;115H          [1;1H[27m[23m[29m[m[H[2J[1;1H[38;5;225mFlat profile:[m
+
+[96mEach sample counts as 0.01 seconds.
+ no time accumulated
+
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  Ts/call  Ts/call  name    [m
+
+[95m [m%[9Cthe percentage of the total running time of the
+time[7Cprogram used by this function.
+
+cumulative a running sum of the number of seconds accounted
+[95m [mseconds   for by this function and those listed above it.
+
+[95m [mself      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+[95m           [mlisting.
+
+calls      the number of times this function was invoked, if
+[95m           [mthis function is profiled, else blank.
+
+[95m [mself      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+[95m           [melse blank.
+
+[95m [mtotal     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+[95m           [mfunction is profiled, else blank.
+
+name[7Cthe name of the function.  This is the minor sort
+[95m           [mfor this listing. The index shows the location of
+[95m           [mthe function in the gprof listing. If the index is
+[95m           [min parenthesis it shows where it would appear in
+[95m           [mthe gprof listing if it were to be printed.
+[38;5;81m^L[m
+Copyright (C) 2012-2022 Free Software Foundation, Inc.[38;125H1,1[11CTop"analysis.txt" 40L, 1474B[1;1H[?25h[?25l[38;115H~@k[1;1H[38;115H   [2;1H[38;125H2,0-1[2;1H[?25h[?25l[38;115H~@k[2;1H[38;115H   [3;1H[38;125H3,1  [3;1H[?25h[?25l[38;115H~@k[3;1H[38;115H   [4;1H[38;125H4[4;1H[?25h[?25l[38;115H~@k[4;1H[38;115H   [5;1H[38;125H5,0-1[5;1H[?25h[?25l[38;115H~@k[5;1H[38;115H   [6;1H[38;125H6,1  [6;1H[?25h[?25l[38;115H~@k[6;1H[38;115H   [7;1H[38;125H7[7;1H[?25h[?25l[38;115H~@k[7;1H[38;115H   [8;1H[38;125H8,0-1[8;1H[?25h[?25l[38;115H~@k[8;1H[38;115H   [9;1H[38;125H9,1  [9;1H[?25h[?25l[38;115H~@k[9;1H[38;115H   [10;1H[38;125H10,1[10;1H[?25h[?25l[38;115H~@k[10;1H[38;115H   [11;1H[38;126H1,0-1[11;1H[?25h[?25l[38;115H~@k[11;1H[38;115H   [12;1H[38;126H2,1  [12;1H[?25h[?25l[38;115H~@k[12;1H[38;115H   [13;1H[38;126H3[13;1H[?25h[?25l[38;115H~@k[13;1H[38;115H   [14;1H[38;126H4,0-1[14;1H[?25h[?25l[38;115H~@k[14;1H[38;115H   [15;1H[38;126H5,1  [15;1H[?25h[?25l[38;115H~@k[15;1H[38;115H   [16;1H[38;126H6[16;1H[?25h[?25l[38;115H~@k[16;1H[38;115H   [17;1H[38;126H7[17;1H[?25h[?25l[38;115H~@k[17;1H[38;115H   [18;1H[38;126H8,0-1[18;1H[?25h[?25l[38;115H~@k[18;1H[38;115H   [19;1H[38;126H9,1  [19;1H[?25h[?25l[38;115H~@k[19;1H[38;115H   [20;1H[38;125H20[20;1H[?25h[?25l[38;115H~@k[20;1H[38;115H   [21;1H[38;126H1,0-1[21;1H[?25h[?25l[38;115H~@k[21;1H[38;115H   [22;1H[38;126H2,1  [22;1H[?25h[?25l[38;115H~@k[22;1H[38;115H   [23;1H[38;126H3[23;1H[?25h[?25l[38;115H~@k[23;1H[38;115H   [24;8H[38;126H4,1-8[24;8H[?25h[?25l[38;115H~@k[24;8H[38;115H   [25;1H[38;126H5,0-1[25;1H[?25h[?25l[38;115H~@k[25;1H[38;115H   [26;1H[38;126H6,1  [26;1H[?25h[?25l[38;115H~@k[26;1H[38;115H   [27;1H[38;126H7[27;1H[?25h[?25l[38;115H~@k[27;1H[38;115H   [28;8H[38;126H8,1-8[28;8H[?25h[?25l[38;115H~@k[28;8H[38;115H   [29;1H[38;126H9,0-1[29;1H[?25h[?25l[38;115H~@k[29;1H[38;115H   [30;1H[38;125H30,1  [30;1H[?25h[?25l[38;115H~@k[30;1H[38;115H   [31;1H[38;126H1[31;1H[?25h[?25l[38;115H~@k[31;1H[38;115H   [32;8H[38;126H2,1-8[32;8H[?25h[?25l[38;115H~@k[32;8H[38;115H   [32;8H[1;37r[37;1H
+[1;38r[37;1HCopying and distribution of this file, with or without modification,[38;1H[K[38;125H33,1-8[8C33%[32;8H[?25h[?25l[38;115H~@k[32;8H[38;115H   [32;8H[1;37r[37;1H
+[1;38r[37;1Hare permitted in any medium without royalty provided the copyright[38;125H[K[38;125H34,1-8[8C66%[32;8H[?25h[?25l[38;115H~@k[32;8H[38;115H   [32;1H[1;37r[37;1H
+[1;38r[37;1Hnotice and this notice are preserved.[38;125H[K[38;125H35,1[10CBot[32;1H[?25h[?25l[38;115H~@k[32;1H[38;115H   [33;1H[38;126H6[33;1H[?25h[?25l[38;115H~@k[33;1H[38;115H   [34;1H[38;126H7,0-1[34;1H[?25h[?25l[38;115H~@k[34;1H[38;115H   [35;1H[38;126H8,1  [35;1H[?25h[?25l[38;115H~@k[35;1H[38;115H   [36;1H[38;126H9[36;1H[?25h[?25l[38;115H~@k[36;1H[38;115H   [37;1H[38;125H40[37;1H[?25h[?25l[38;115H~@k[37;1H[38;115H   [37;1H[?25h[?25l[38;115H~@k[37;1H[38;115H   [37;1H[?25h[?25l[38;115H~@k[37;1H[38;115H   [37;1H[?25h[?25l[38;115H~@k[37;1H[38;115H   [37;1H[?25h[?25l[38;115H~@k[37;1H[38;115H   [37;1H[?25h[?25l[38;115H~@k[37;1H[38;115H   [37;1H[?25h[?25l[38;115H~@k[37;1H[38;115H   [37;1H[?25h[?25l[38;115H~@k[37;1H[38;115H   [37;1H[?25h[?25l[38;115H~@k[37;1H[38;115H   [37;1H[?25h[?25l[38;115H~@k[37;1H[38;115H   [37;1H[?25h[?25l[38;115H~@k[37;1H[38;115H   [37;1H[?25h[?25l[38;115H~@k[37;1H[38;115H   [37;1H[?25h[?25l[38;115H~@k[37;1H[38;115H   [37;1H[?25h[?25l[38;115H/[37;1H[38;115H[K[38;1H/[?25h[?25l\<cat\>[116C40,1[10CBot[38;125H[K[38;9H[?25h[?25l[38;8H[K[38;125H40,1[10CBot[38;125H[K[38;8H[?25h[?25l[38;7H[K[38;125H40,1[10CBot[38;125H[K[38;7H[?25h[?25l[38;6H[K[1;37r[1;1H[2L[1;38r[2;1H[96mEach sample counts as 0.01 seconds.[m[6;30H[7m[96mca[m[38;1H[K[38;125H7,30[10C33%/\<ca[38;125H[K[38;6H[?25h[?25l[38;5H[K[1;37r[1;1H[L[1;38r[1;1H[38;5;225mFlat profile:[m[3;13H[7m[96mc[m[7;30H[96mca[m[38;1H[K[38;125H3,13[10CTop/\<c[38;125H[K[38;5H[?25h[?25l[38;4H[K[1;37r[1;1H[3M[1;38r[35;1HCopying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice [7ma[mnd this notice are preserved.[38;1H[K[38;125H40,8[10CBot/\<[38;125H[K[38;4H[?25h[?25l[38;3H[K[37;8Ha[38;125H40,1[10CBot[38;125H[K[38;3H[?25h[?25l[38;2H[K[38;125H40,1[10CBot[38;125H[K[38;2H[?25h [?25l[37;1H[38;125H40,1[10CBot[37;1H[?25h[?25l[38;115H~@k[37;1H[38;115H   [36;66H[38;125H39,66[36;66H[?25h[?25l[38;115H~@k[36;66H[38;115H   [35;66H[38;126H8[35;66H[?25h[?25l[38;115H~@k[35;66H[38;115H   [34;1H[38;126H7,0-1[34;1H[?25h[?25l[38;115H~@k[34;1H[38;115H   [33;54H[38;126H6,54 [33;54H[?25h[?25l[38;115H~@k[33;54H[38;115H   [32;1H[38;126H5,1 [32;1H[?25h[?25l[38;115H~@k[32;1H[38;115H   [31;54H[38;126H4,47-54[31;54H[?25h[?25l[38;115H~@k[31;54H[38;115H   [30;59H[38;126H3,52-59[30;59H[?25h[?25l[38;115H~@k[30;59H[38;115H   [29;61H[38;126H2,54-61[29;61H[?25h[?25l[38;115H~@k[29;61H[38;115H   [28;60H[38;126H1,60   [28;60H[?25h[?25l[38;115H~@k[28;60H[38;115H   [27;60H[38;126H0[27;60H[?25h[?25l[38;115H~@k[27;60H[38;115H   [26;1H[38;125H29,0-1[26;1H[?25h[?25l[38;115H~@k[26;1H[38;115H   [25;44H[38;126H8,37-44[25;44H[?25h[?25l[38;115H~@k[25;44H[38;115H   [24;57H[38;126H7,57   [24;57H[?25h[?25l[38;115H~@k[24;57H[38;115H   [23;59H[38;126H6,59[23;59H[?25h[?25l[38;115H~@k[23;59H[38;115H   [22;1H[38;126H5,0-1[22;1H[?25h[?25l[38;115H~@k[22;1H[38;115H   [21;22H[38;126H4,15-22[21;22H[?25h[?25l[38;115H~@k[21;22H[38;115H   [20;59H[38;126H3,59   [20;59H[?25h[?25l[38;115H~@k[20;59H[38;115H   [19;59H[38;126H2[19;59H[?25h[?25l[38;115H~@k[19;59H[38;115H   [18;1H[38;126H1,0-1[18;1H[?25h[?25l[38;115H~@k[18;1H[38;115H   [17;49H[38;126H0,49 [17;49H[?25h[?25l[38;115H~@k[17;49H[38;115H   [16;60H[38;125H19,60[16;60H[?25h[?25l[38;115H~@k[16;60H[38;115H   [15;1H[38;126H8,0-1[15;1H[?25h[?25l[38;115H~@k[15;1H[38;115H   [14;19H[38;126H7,19 [14;19H[?25h[?25l[38;115H~@k[14;19H[38;115H   [13;59H[38;126H6,5[13;59H[?25h[?25l[38;115H~@k[13;59H[38;115H   [12;54H[38;126H5,54[12;54H[?25h[?25l[38;115H~@k[12;54H[38;115H   [11;1H[38;126H4,0-1[11;1H[?25h[?25l[38;115H~@k[11;1H[38;115H   [10;58H[38;126H3,58 [10;58H[?25h[?25l[38;115H~@k[10;58H[38;115H   [9;59H[38;126H2,59[9;59H[?25h[?25l[38;115H~@k[9;59H[38;115H   [8;1H[38;126H1,0-1[8;1H[?25h[?25l[38;115H~@k[8;1H[38;115H   [7;41H[38;126H0,41 [7;41H[?25h[?25l[38;115H~@k[7;41H[38;115H   [6;58H[38;125H9,58 [6;58H[?25h[?25l[38;115H~@k[6;58H[38;115H   [6;1H[1;37r[1;1H[L[1;38r[1;1H[96mEach sample counts as 0.01 seconds.[m[38;125H[K[38;125H8,0-1[9C66%[6;1H[?25h[?25l[38;115H~@k[6;1H[38;115H   [6;62H[1;37r[1;1H[L[1;38r[38;125H[K[38;125H7,62[10C33%[6;62H[?25h[?25l[38;115H~@k[6;62H[38;115H   [6;62H[1;37r[1;1H[L[1;38r[1;1H[38;5;225mFlat profile:[m[38;125H[K[38;125H6,62[10CTop[6;62H[?25h[?25l[38;115H~@k[6;62H[38;115H   [5;1H[38;125H5,0-1[5;1H[?25h[?25l[38;115H~@k[5;1H[38;115H   [4;20H[38;125H4,20 [4;20H[?25h[?25l[38;115H~@k[4;20H[38;115H   [3;35H[38;125H3,35[3;35H[?25h[?25l[38;115H~@k[3;35H[38;115H   [2;1H[38;125H2,0-1[2;1H[?25h[?25l[38;115H~@k[2;1H[38;115H   [1;13H[38;125H1,13 [1;13H[?25h[?25l[38;115H~@k[1;13H[38;115H   [1;13H[?25h[?25l[38;115H~@k[1;13H[38;115H   [1;13H[?25h[?25l[38;115H~@k[1;13H[38;115H   [1;13H[?25h[?25l[38;115H~@k[1;13H[38;115H   [1;13H[?25h[?25l[38;115H~@k[1;13H[38;115H   [1;13H[?25h[?25l[38;115H~@k[1;13H[38;115H   [1;13H[?25h[?25l[38;115H~@k[1;13H[38;115H   [1;13H[?25h[?25l[38;115H~@k[1;13H[38;115H   [1;13H[?25h[?25l[38;115H~@k[1;13H[38;115H   [1;13H[?25h[?25l[38;115H~@k[1;13H[38;115H   [2;1H[38;125H2,0-1[2;1H[?25h[?25l[38;115H~@k[2;1H[38;115H   [3;35H[38;125H3,35 [3;35H[?25h[?25l[38;115H~@k[3;35H[38;115H   [4;20H[38;125H4,20[4;20H[?25h[?25l[38;115H~@k[4;20H[38;115H   [5;1H[38;125H5,0-1[5;1H[?25h[?25l[38;115H~@k[5;1H[38;115H   [6;62H[38;125H6,62 [6;62H[?25h[?25l[38;115H~@k[6;62H[38;115H   [7;62H[38;125H7[7;62H[?25h[?25l[38;115H~@k[7;62H[38;115H   [8;1H[38;125H8,0-1[8;1H[?25h[?25l[38;115H~@k[8;1H[38;115H   [9;58H[38;125H9,58 [9;58H[?25h[?25l[38;115H~@k[9;58H[38;115H   [10;41H[38;125H10,41[10;41H[?25h[?25l[38;115H~@k[10;41H[38;115H   [11;1H[38;126H1,0-1[11;1H[?25h[?25l[38;115H~@k[11;1H[38;115H   [12;59H[38;126H2,59 [12;59H[?25h[?25l[38;115H~@k[12;59H[38;115H   [13;58H[38;126H3,58[13;58H[?25h[?25l[38;115H~@k[13;58H[38;115H   [14;1H[38;126H4,0-1[14;1H[?25h[?25l[38;115H~@k[14;1H[38;115H   [15;54H[38;126H5,54 [15;54H[?25h[?25l[38;115H~@k[15;54H[38;115H   [16;59H[38;126H6,59[16;59H[?25h[?25l[38;115H^[[16;59H[38;115H  [16;59H[38;115H^[[16;59H[38;115H  [16;59H[?25h[?25l[38;115H:[16;59H[38;115H[K[38;1H:[?25hq[?25l[?2004l[>4;m[23;2t[23;1t[38;1H[K[38;1H[?1004l[?2004l[?1l>[?25h[>4;m[?1049l[23;0;0t[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[00m$ cl[K[Kvalgrind
+[?2004lCommand 'valgrind' not found, but can be installed with:
+sudo snap install valgrind  # version 3.20.0, or
+sudo apt  install valgrind  # version 1:3.18.1-1ubuntu2
+See 'snap info valgrind' for additional versions.
+[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[00m$ sudo apt insta;[Kll valgrind
+[?2004lReading package lists... 0%Reading package lists... 100%Reading package lists... Done
+Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%Building dependency tree... 80%Building dependency tree... Done
+Reading state information... 0% Reading state information... 0%Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  apache2-bin apache2-data apache2-utils chromium-codecs-ffmpeg-extra gstreamer1.0-vaapi i965-va-driver intel-media-va-driver libaacs0
+  libapr1 libaprutil1 libaprutil1-dbd-sqlite3 libaprutil1-ldap libass9 libavcodec58 libavformat58 libavutil56 libbdplus0 libbluray2 libbs2b0
+  libchromaprint1 libcodec2-1.0 libdpkg-perl libfile-fcntllock-perl libflite1 libgme0 libgnome-bg-4-1 libgsm1 libgstreamer-plugins-bad1.0-0
+  libigdgmm12 liblilv-0-0 libmfx1 libmysofa1 libnorm1 libnvidia-cfg1-515 libnvidia-common-515 libnvidia-decode-515 libnvidia-egl-wayland1
+  libnvidia-encode-515 libnvidia-extra-515 libnvidia-fbc1-515 libnvidia-gl-515 libopenmpt0 libpgm-5.3-0 libpostproc55 librabbitmq4
+  librubberband2 libserd-0-0 libshine3 libsnappy1v5 libsord-0-0 libsratom-0-0 libsrt1.4-gnutls libssh-gcrypt-4 libswresample3 libswscale5
+  libudfread0 libva-drm2 libva-wayland2 libva-x11-2 libva2 libvdpau1 libvidstab1.1 libxnvctrl0 libxvidcore4 libzimg2 libzmq5 libzvbi-common
+  libzvbi0 mesa-va-drivers mesa-vdpau-drivers nvidia-compute-utils-515 nvidia-settings nvidia-utils-515 pkg-config pocketsphinx-en-us
+  screen-resolution-extra va-driver-all vdpau-driver-all xserver-xorg-video-nvidia-515
+Use 'sudo apt autoremove' to remove them.
+Suggested packages:
+  valgrind-dbg valgrind-mpi kcachegrind alleyoop valkyrie
+The following NEW packages will be installed:
+  valgrind
+0 upgraded, 1 newly installed, 0 to remove and 153 not upgraded.
+Need to get 14.1 MB of archives.
+After this operation, 79.3 MB of additional disk space will be used.
+[33m0% [Working][0m[33m0% [Waiting for headers][0m                        Get:1 http://eg.archive.ubuntu.com/ubuntu jammy/main amd64 valgrind amd64 1:3.18.1-1ubuntu2 [14.1 MB]
+[33m0% [1 valgrind 6,654 B/14.1 MB 0%][0m[33m0% [1 valgrind 38.6 kB/14.1 MB 0%][0m[33m                                  1% [1 valgrind 120 kB/14.1 MB 1%][0m[33m2% [1 valgrind 388 kB/14.1 MB 3%][0m[33m5% [1 valgrind 901 kB/14.1 MB 6%][0m[33m5% [1 valgrind 901 kB/14.1 MB 6%][0m[33m11% [1 valgrind 1,994 kB/14.1 MB 14%][0m[33m13% [1 valgrind 2,358 kB/14.1 MB 17%][0m[33m13% [1 valgrind 2,375 kB/14.1 MB 17%][0m[33m13% [1 valgrind 2,375 kB/14.1 MB 17%][0m[33m13% [1 valgrind 2,375 kB/14.1 MB 17%][0m[33m24% [1 valgrind 4,142 kB/14.1 MB 29%]                                                                                            665 kB/s 14s[0m[33m25% [1 valgrind 4,454 kB/14.1 MB 32%]                                                                                            665 kB/s 14s[0m[33m25% [1 valgrind 4,454 kB/14.1 MB 32%]                                                                                            665 kB/s 14s[0m[33m33% [1 valgrind 5,753 kB/14.1 MB 41%]                                                                                            665 kB/s 12s[0m[33m35% [1 valgrind 6,218 kB/14.1 MB 44%]                                                                                            665 kB/s 11s[0m[33m38% [1 valgrind 6,779 kB/14.1 MB 48%]                                                                                            665 kB/s 11s[0m[33m46% [1 valgrind 8,068 kB/14.1 MB 57%]                                                                                             665 kB/s 9s[0m[33m47% [1 valgrind 8,256 kB/14.1 MB 59%]                                                                                             665 kB/s 8s[0m[33m52% [1 valgrind 9,097 kB/14.1 MB 65%]                                                                                             665 kB/s 7s[0m[33m52% [1 valgrind 9,097 kB/14.1 MB 65%]                                                                                             665 kB/s 7s[0m[33m56% [1 valgrind 9,780 kB/14.1 MB 69%]                                                                                             665 kB/s 6s[0m[33m61% [1 valgrind 10.8 MB/14.1 MB 77%]                                                                                              665 kB/s 4s[0m[33m64% [1 valgrind 11.3 MB/14.1 MB 80%]                                                                                            1,197 kB/s 2s[0m[33m64% [1 valgrind 11.3 MB/14.1 MB 81%]                                                                                            1,197 kB/s 2s[0m[33m65% [1 valgrind 11.5 MB/14.1 MB 81%]                                                                                            1,197 kB/s 2s[0m[33m66% [1 valgrind 11.6 MB/14.1 MB 82%]                                                                                            1,197 kB/s 2s[0m[33m69% [1 valgrind 12.2 MB/14.1 MB 87%]                                                                                            1,197 kB/s 1s[0m[33m69% [1 valgrind 12.2 MB/14.1 MB 87%]                                                                                            1,197 kB/s 1s[0m[33m73% [1 valgrind 12.9 MB/14.1 MB 91%]                                                                                            1,197 kB/s 1s[0m[33m77% [1 valgrind 13.6 MB/14.1 MB 96%]                                                                                            1,197 kB/s 0s[0m[33m100% [Working]                                                                                                                  1,197 kB/s 0s[0m                                                                                                                                             Fetched 14.1 MB in 16s (868 kB/s)
+
+7[0;37r8[1ASelecting previously unselected package valgrind.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 249673 files and directories currently installed.)
+Preparing to unpack .../valgrind_1%3a3.18.1-1ubuntu2_amd64.deb ...
+7[38;0f[42m[30mProgress: [  0%][49m[39m [........................................................................................................................] 87[38;0f[42m[30mProgress: [ 20%][49m[39m [########################................................................................................................] 8Unpacking valgrind (1:3.18.1-1ubuntu2) ...
+7[38;0f[42m[30mProgress: [ 40%][49m[39m [################################################........................................................................] 8Setting up valgrind (1:3.18.1-1ubuntu2) ...
+7[38;0f[42m[30mProgress: [ 60%][49m[39m [########################################################################................................................] 87[38;0f[42m[30mProgress: [ 80%][49m[39m [################################################################################################........................] 8Processing triggers for man-db (2.10.2-1) ...
+
+7[0;38r8[1A[J[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/07_profiling[00m$ valgi[

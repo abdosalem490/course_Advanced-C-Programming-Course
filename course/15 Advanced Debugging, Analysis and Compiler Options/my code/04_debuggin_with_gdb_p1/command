@@ -1,0 +1,194 @@
+Script started on 2023-02-08 22:38:52+02:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="142" LINES="38"]
+[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/04_debuggin_with_gdb_p1[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/04_debuggin_with_gdb_p1[00m$ gcc -g main.c 
+a.out    command  main.c   
+]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/04_debuggin_with_gdb_p1[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/04_debuggin_with_gdb_p1[00m$ gcc -g main.c 
+a.out    command  main.c   
+]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/04_debuggin_with_gdb_p1[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/04_debuggin_with_gdb_p1[00m$ gcc -g main.c 
+[?2004l[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/04_debuggin_with_gdb_p1[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/04_debuggin_with_gdb_p1[00m$ gdb a
+Display all 107 possibilities? (y or n)
+]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/04_debuggin_with_gdb_p1[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/04_debuggin_with_gdb_p1[00m$ gdb a
+[?2004l[35;1mGNU gdb (Ubuntu 12.1-0ubuntu1~22.04) 12.1[m
+Copyright (C) 2022 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+a: No such file or directory.
+[?2004h(gdb) Quit
+[?2004l[?2004h(gdb) Quit
+[?2004l[?2004h(gdb) quit
+[?2004l[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/04_debuggin_with_gdb_p1[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/04_debuggin_with_gdb_p1[00m$ gdb a.out 
+[?2004l[35;1mGNU gdb (Ubuntu 12.1-0ubuntu1~22.04) 12.1[m
+Copyright (C) 2022 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from [32ma.out[m...
+[?2004h(gdb) run
+[?2004lStarting program: [32m/home/abdosalm/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/04_debuggin_with_gdb_p1/a.out[m 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "[32m/lib/x86_64-linux-gnu/libthread_db.so.1[m".
+
+Program received signal SIGSEGV, Segmentation fault.
+[34m0x00005555555551c3[m in [33mmain[m () at [32mmain.c[m:10
+10			sum [31m+=[m data[31m[[mi[31m];[m
+[?2004h[?2004l[?2004h(gdb) list 9
+[?2004l4	[32mint[m [01mmain[m[31m()[m
+5	[31m{[m
+6		[01;34mconst[m [32mint[m data[31m[[m[35m5[m[31m][m [31m=[m [31m{[m[35m1[m[31m,[m [35m2[m[31m,[m [35m3[m[31m,[m [35m4[m[31m,[m [35m5[m[31m}[m[31m;[m
+7		[32mint[m i [31m=[m [35m0[m[31m,[m sum [31m=[m [35m0[m[31m;[m
+8	
+9		[01;34mfor[m[31m([mi [31m=[m [35m0[m[31m;[m i [31m>=[m [35m0[m[31m;[m [31m++[mi[31m)[m
+10			sum [31m+=[m data[31m[[mi[31m];[m
+11	
+12		[01mprintf[m[31m([m[31m"sum = %i[m[35m\n[m[31m"[m[31m,[m sum[31m);[m
+13		
+[?2004h(gdb) print sum
+[?2004l$1 = -1702251312
+[?2004h(gdb) print sum[K[K[Ki
+[?2004l$2 = 1304
+[?2004h(gdb) print data
+[?2004l$3 = {1, 2, 3, 4, 5}
+[?2004h(gdb) printf da[K[K[K[K data[0]
+[?2004l$4 = 1
+[?2004h(gdb) quit
+[?2004l[?2004hA debugging session is active.
+
+	Inferior 1 [process 19037] will be killed.
+
+Quit anyway? (y or n) y
+[?2004l[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/04_debuggin_with_gdb_p1[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/04_debuggin_with_gdb_p1[00m$ gdb a.out [Kcc -g main.c db a[K.out 
+[?2004l[35;1mGNU gdb (Ubuntu 12.1-0ubuntu1~22.04) 12.1[m
+Copyright (C) 2022 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from [32ma.out[m...
+[?2004h(gdb) run
+[?2004lStarting program: [32m/home/abdosalm/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/04_debuggin_with_gdb_p1/a.out[m 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "[32m/lib/x86_64-linux-gnu/libthread_db.so.1[m".
+
+Program received signal SIGSEGV, Segmentation fault.
+[34m0x00005555555551c3[m in [33mmain[m () at [32mmain.c[m:10
+10			sum [31m+=[m data[31m[[mi[31m];[m
+[?2004h[?2004l[?2004h(gdb) set var i = 5
+[?2004l[?2004h(gdb) print i
+[?2004l$1 = 5
+[?2004h(gdb) set var i = i * 2
+[?2004l[?2004h(gdb) r[Kprint i
+[?2004l$2 = 10
+[?2004h(gdb) print iset var i = i * 2[K[K[K[K[K&1+20
+[?2004lAttempt to take address of value not located in memory.
+[?2004h(gdb) set var i = &1+20[C[C[C[C[C[C[Kset var i = &1+20[1P1+20$1+20
+[?2004l[?2004h(gdb) set var i = $1+20&1+20[C[C[C[C[C[C[10Pprint i
+[?2004l$3 = 25
+[?2004h(gdb) print main::i
+[?2004l$4 = 25
+[?2004h(gdb) setv [K[K vat[Kr main::i
+[?2004lwarning: Expression is not an assignment (and might have no effect)
+[?2004h(gdb) set var main::i = 0
+[?2004l[?2004h(gdb) print i
+[?2004l$5 = 0
+[?2004h(gdb) set [K[K[K[Kp date[Ka
+[?2004l$6 = {1, 2, 3, 4, 5}
+[?2004h(gdb) p /x i
+[?2004l$7 = 0x0
+[?2004h(gdb) l
+[?2004l5	[31m{[m
+6		[01;34mconst[m [32mint[m data[31m[[m[35m5[m[31m][m [31m=[m [31m{[m[35m1[m[31m,[m [35m2[m[31m,[m [35m3[m[31m,[m [35m4[m[31m,[m [35m5[m[31m}[m[31m;[m
+7		[32mint[m i [31m=[m [35m0[m[31m,[m sum [31m=[m [35m0[m[31m;[m
+8	
+9		[01;34mfor[m[31m([mi [31m=[m [35m0[m[31m;[m i [31m>=[m [35m0[m[31m;[m [31m++[mi[31m)[m
+10			sum [31m+=[m data[31m[[mi[31m];[m
+11	
+12		[01mprintf[m[31m([m[31m"sum = %i[m[35m\n[m[31m"[m[31m,[m sum[31m);[m
+13		
+14		[01;34mreturn[m [35m0[m[31m;[m
+[?2004h(gdb) l 2
+[?2004l1	[01;34m#include[m[31m<stdio.h>[m
+2	
+3	
+4	[32mint[m [01mmain[m[31m()[m
+5	[31m{[m
+6		[01;34mconst[m [32mint[m data[31m[[m[35m5[m[31m][m [31m=[m [31m{[m[35m1[m[31m,[m [35m2[m[31m,[m [35m3[m[31m,[m [35m4[m[31m,[m [35m5[m[31m}[m[31m;[m
+7		[32mint[m i [31m=[m [35m0[m[31m,[m sum [31m=[m [35m0[m[31m;[m
+8	
+9		[01;34mfor[m[31m([mi [31m=[m [35m0[m[31m;[m i [31m>=[m [35m0[m[31m;[m [31m++[mi[31m)[m
+10			sum [31m+=[m data[31m[[mi[31m];[m
+[?2004h(gdb) l 2[K1
+[?2004l1	[01;34m#include[m[31m<stdio.h>[m
+2	
+3	
+4	[32mint[m [01mmain[m[31m()[m
+5	[31m{[m
+6		[01;34mconst[m [32mint[m data[31m[[m[35m5[m[31m][m [31m=[m [31m{[m[35m1[m[31m,[m [35m2[m[31m,[m [35m3[m[31m,[m [35m4[m[31m,[m [35m5[m[31m}[m[31m;[m
+7		[32mint[m i [31m=[m [35m0[m[31m,[m sum [31m=[m [35m0[m[31m;[m
+8	
+9		[01;34mfor[m[31m([mi [31m=[m [35m0[m[31m;[m i [31m>=[m [35m0[m[31m;[m [31m++[mi[31m)[m
+10			sum [31m+=[m data[31m[[mi[31m];[m
+[?2004h(gdb) ind[Kfo source
+[?2004lCurrent source file is main.c
+Compilation directory is /home/abdosalm/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/04_debuggin_with_gdb_p1
+Located in /home/abdosalm/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/04_debuggin_with_gdb_p1/main.c
+Contains 15 lines.
+Source language is c.
+Producer is GNU C17 11.3.0 -mtune=generic -march=x86-64 -g -fasynchronous-unwind-tables -fstack-protector-strong -fstack-clash-protection -fcf-protection.
+Compiled with DWARF 5 debugging format.
+Does not include preprocessor macro info.
+[?2004h(gdb) lis[K[K +
+[?2004l11	
+12		[01mprintf[m[31m([m[31m"sum = %i[m[35m\n[m[31m"[m[31m,[m sum[31m);[m
+13		
+14		[01;34mreturn[m [35m0[m[31m;[m
+15	[31m}[m
+[?2004h(gdb) l -
+[?2004l1	[01;34m#include[m[31m<stdio.h>[m
+2	
+3	
+4	[32mint[m [01mmain[m[31m()[m
+5	[31m{[m
+6		[01;34mconst[m [32mint[m data[31m[[m[35m5[m[31m][m [31m=[m [31m{[m[35m1[m[31m,[m [35m2[m[31m,[m [35m3[m[31m,[m [35m4[m[31m,[m [35m5[m[31m}[m[31m;[m
+7		[32mint[m i [31m=[m [35m0[m[31m,[m sum [31m=[m [35m0[m[31m;[m
+8	
+9		[01;34mfor[m[31m([mi [31m=[m [35m0[m[31m;[m i [31m>=[m [35m0[m[31m;[m [31m++[mi[31m)[m
+10			sum [31m+=[m data[31m[[mi[31m];[m
+[?2004h(gdb) quit
+[?2004l[?2004hA debugging session is active.
+
+	Inferior 1 [process 19206] will be killed.
+
+Quit anyway? (y or n) y
+[?2004l[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/04_debuggin_with_gdb_p1[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/15 Advanced Debugging, Analysis and Compiler Options/my code/04_debuggin_with_gdb_p1[00m$ r[Kexit
+[?2004lexit
+
+Script done on 2023-02-08 22:48:08+02:00 [COMMAND_EXIT_CODE="0"]
