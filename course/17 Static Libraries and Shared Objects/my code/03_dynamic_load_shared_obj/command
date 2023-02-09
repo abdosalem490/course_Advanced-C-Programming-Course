@@ -1,0 +1,20 @@
+Script started on 2023-02-09 20:45:50+02:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="142" LINES="38"]
+[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/17 Static Libraries and Shared Objects/my code/03_dynamic_load_shared_obj[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/17 Static Libraries and Shared Objects/my code/03_dynamic_load_shared_obj[00m$ gcc -o main main.c -ldl
+[?2004l[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/17 Static Libraries and Shared Objects/my code/03_dynamic_load_shared_obj[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/17 Static Libraries and Shared Objects/my code/03_dynamic_load_shared_obj[00m$ ./main 
+[?2004l-0.416147
+[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/17 Static Libraries and Shared Objects/my code/03_dynamic_load_shared_obj[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/17 Static Libraries and Shared Objects/my code/03_dynamic_load_shared_obj[00m$ ldd main
+[?2004l	linux-vdso.so.1 (0x00007fff07ff4000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007fe228b45000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007fe228d87000)
+[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/17 Static Libraries and Shared Objects/my code/03_dynamic_load_shared_obj[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course/17 Static Libraries and Shared Objects/my code/03_dynamic_load_shared_obj[00m$ cd ...[K/../..
+[?2004l[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course[00m$ ls
+[?2004l[0m[01;34m'01 Introduction'[0m                  [01;34m'09 Advanced Control Flow'[0m                              [01;34m'17 Static Libraries and Shared Objects'[0m
+[01;34m'02 Installing Required Software'[0m  [01;34m'10 Input and Output'[0m                                   [01;34m'18 Useful C Libraries'[0m
+[01;34m'03 Starting to Write Code'[0m        [01;34m'11 Advanced Function Concepts'[0m                         [01;34m'19 Data Structures'[0m
+[01;34m'04 Working with Larger Programs'[0m  [01;34m'12 Unions'[0m                                             [01;34m'20 Interprocess Communication and Signals'[0m
+[01;34m'05 Storage Classes'[0m               [01;34m'13 The Preprocessor'[0m                                   [01;34m'21 Threads'[0m
+[01;34m'06 Advanced Data Types'[0m           [01;34m'14 Macros'[0m                                             [01;34m'22 Networking (Sockets)'[0m
+[01;34m'07 Type Qualifiers'[0m               [01;34m'15 Advanced Debugging, Analysis and Compiler Options'[0m  [01;34m'23 Conclusion'[0m
+[01;34m'08 Bit Manipulation'[0m              [01;34m'16 Advanced Pointers'[0m                                  [01;34m'24 Extra Information-Source code and other stuff'[0m
+[?2004h]0;abdosalm@abdosalm-Alienware-m17-R3: ~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course[01;32mabdosalm@abdosalm-Alienware-m17-R3[00m:[01;34m~/Documents/courses/Tim Buchalka Learn Programming Academy/Advanced C Programming Course/course[00m$ cd ..
+[?2004l[?2004h]0;abdosalm@
